@@ -1,0 +1,9 @@
+{
+    "users": [
+        {
+            "id": "1234",
+            "title": "Ilan Brunfman",
+            "type": "admin"
+        }
+    ]
+}
