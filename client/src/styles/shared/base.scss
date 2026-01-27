@@ -1,0 +1,9 @@
+@use "variables" as var;
+
+body{
+    background-color: var(--ilan);
+}
+
+.active{
+    color: red
+}
