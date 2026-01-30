@@ -1,0 +1,53 @@
+@use "@/styles/shared/variables" as var;
+
+.modal {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+
+  form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  label {
+    font-size: 14px;
+    font-weight: 500;
+    margin-bottom: 7px;
+    display: block;
+  }
+
+  input,
+  select {
+    width: 100%;
+    padding: 10px 12px;
+    border-radius: 8px;
+    border: none;
+    // border: 1px solid #d1d5db;
+    background-color: var(--background);;
+    font-size: 14px;
+    width: 100%;
+    transition: border 0.2s, box-shadow 0.2s;
+
+    &:focus {
+      outline: none;
+      border-color: #4f46e5;; // var(--gray); // #007bff;
+      // box-shadow: 0 0 0 3px rgba(var(--black), 0.2);
+      box-shadow: 0 0 0 2px rgba(79,70,229,0.15);
+    }
+  }
+
+  .modal-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 1.0rem;
+
+  }
+
+  p {
+    color: red;
+    font-size: 0.9rem;
+    margin: 0;
+  }
+}

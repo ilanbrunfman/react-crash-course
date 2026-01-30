@@ -1,0 +1,45 @@
+@use "@/styles/shared/variables" as var;
+
+.navbar{
+    background-color: #6c5ce7;
+    
+    &-container{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding-inline: 1.5rem;
+        min-height: 64px;
+
+        @media (min-width: var.$lg) { 
+            width: min(100%, var.$xxl);
+            padding-inline: 3.0rem;
+            margin-inline: auto;
+        }
+
+    }
+
+    &-logo{
+        .logo{
+            
+        }
+    }
+    
+    .nav{
+        &-logo{
+            color: #fff;
+            font-weight: 700;
+            font-size: 20px;
+        }
+        &-link{
+            color: #fff;
+            font-size: 13px;
+            font-weight: 400;
+            padding: 9px 9px;
+            border-radius: 5px;
+
+            &.active{
+                background-color: #242424;
+            }
+        }
+    }
+}

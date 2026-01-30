@@ -1,0 +1,136 @@
+.btn {
+    --btn-bg: #4f46e5;
+    --btn-bg-hover: #4338ca;
+    --btn-text: #ffffff;
+
+    border: none;
+    padding: 10px 16px;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 14px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    min-width: 90px;
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+
+    background: var(--btn-bg);
+    color: var(--btn-text);
+
+    &:hover:not(:disabled) {
+        background: var(--btn-bg-hover);
+    }
+
+    &:disabled {
+        opacity: 0.6;
+        cursor: not-allowed;
+    }
+
+    &-sm {
+        padding: 6px 10px;
+        font-size: 12px;
+        border-radius: 6px;
+    }
+
+    &-md {
+        padding: 10px 16px;
+        font-size: 14px;
+        border-radius: 8px;
+    }
+
+    &-lg {
+        padding: 14px 20px;
+        font-size: 16px;
+        border-radius: 10px;
+    }
+
+    &-full {
+        width: 100%;
+    }
+    
+    /* Variants */
+    &-primary {
+        --btn-bg: #4f46e5;
+        --btn-bg-hover: #4338ca;
+        --btn-text: #ffffff;
+    }
+    
+    &-success {
+        --btn-bg: #16a34a;
+        --btn-bg-hover: #15803d;
+        --btn-text: #ffffff;
+    }
+    
+    &-danger {
+        --btn-bg: #dc2626;
+        --btn-bg-hover: #b91c1c;
+        --btn-text: #ffffff;
+    }
+    
+    &-ghost {
+        --btn-bg: #f3f4f6;
+        --btn-bg-hover: #e5e7eb;
+        --btn-text: #111827;
+    }
+
+    /* Icon */
+    &-icon {
+        display: flex;
+        align-items: center;
+        font-size: 16px;
+
+        &.left { margin-right: 4px; }
+        &.right { margin-left: 4px; }
+    }
+
+    /* Label */
+    &-label {
+        line-height: 1;
+    }
+
+    /* Spinner */
+    &-spinner {
+        width: 16px;
+        height: 16px;
+        border: 2px solid currentColor;
+        border-top-color: transparent;
+        border-radius: 50%;
+        animation: spin 0.6s linear infinite;
+    }
+
+    @keyframes spin {
+        to { transform: rotate(360deg); }
+    }
+
+    
+    /* 🌙 DARK MODE */
+    @media (prefers-color-scheme: dark) {
+        .btn-ghost {
+            --btn-bg: #1f2937;
+            --btn-bg-hover: #374151;
+            --btn-text: #f9fafb;
+        }
+    
+        .btn-primary {
+            --btn-bg: #6366f1;
+            --btn-bg-hover: #4f46e5;
+        }
+    
+        .btn-success {
+            --btn-bg: #22c55e;
+            --btn-bg-hover: #16a34a;
+        }
+    
+        .btn-danger {
+            --btn-bg: #ef4444;
+            --btn-bg-hover: #dc2626;
+        }
+    }
+}
+
+
+
+    
