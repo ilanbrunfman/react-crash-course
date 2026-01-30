@@ -17,12 +17,12 @@
       "type": "customer"
     },
     {
-      "id": "1ed9",
+      "id": "b882",
       "firstName": "Gilad",
       "lastName": "Brunfman",
       "email": "gilad.brunfman@gmail.com",
-      "password": "dsfg4e34r3$",
-      "type": "customer"
+      "password": "something#lse12",
+      "type": "guest"
     }
   ]
 }

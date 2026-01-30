@@ -1,22 +1,21 @@
+
+import { useState } from 'react';
 import { useUsers } from '@/hooks/useUsers';
 import { useModal } from '@/context/modal/ModalContext';
-import { useToast } from '@/context/toast/ToastContext';
+import { useUserFilter, useUserSort } from '@/hooks/useUserFilter';
+
+import UserSearch from './userSearch/UserSeach';
 import UsersTable from './usersTable//UsersTable';
 import AddUserModal from './modals/AddUserModal';
 import Button from '@/components/button/Button';
 
 const HomePage = () => {
-    const {
-        users,
-        loading,
-        error,
-        addUser,
-        editUser,
-        removeUser
-    } = useUsers();
-
+    const { users, loading, error, addUser, editUser, removeUser } = useUsers();
     const { openModal } = useModal();
-    const { addToast } = useToast();
+
+    const [search, setSearch] = useState('');
+    const filteredUsers = useUserFilter(users, search);
+    const sortedUsers = useUserSort(filteredUsers);
 
     if (loading) return <p>Loading...</p>;
     if (error) return <p>Error: {error}</p>;
@@ -27,13 +26,10 @@ const HomePage = () => {
                 <div className="container">
                     <div className="row">
                         <div className="col-12 d-flex align-items-center justify-between pt-2 mb-2">
-                            <h1 className=''>Users</h1>
-                            <button onClick={() => addToast({ message: 'User added successfully!', type: 'success', duration: 2500 })}>
-                                Fire toast
-                            </button>
+                            <h1 className=''>Users list</h1>
                             <Button
                                 variant="primary"
-                                icon={{ name: 'IconUser', position: 'right', size: 16, }}
+                                icon={{ name: 'IconPlus', position: 'right', size: 16, }}
                                 onClick={() => openModal(AddUserModal, { addUser })}
                             >
                                 New User
@@ -42,14 +38,26 @@ const HomePage = () => {
                     </div>
 
                     <div className="row">
+                        <div className="col-12 mb-1">
+                            <UserSearch search={search} onSearch={setSearch} />
+                        </div>
+                    </div>
+
+                    <div className="row">
                         <div className="col-12">
-                            <UsersTable 
-                                users={users}
-                                loading={loading}
-                                error={error}
-                                editUser={editUser}
-                                removeUser={removeUser}
-                            />
+                            {sortedUsers.length > 0 ? (
+                                <UsersTable
+                                    users={sortedUsers}
+                                    loading={loading}
+                                    error={error}
+                                    editUser={editUser}
+                                    removeUser={removeUser}
+                                />
+                            ) : (
+                                <div className="no-users">
+                                    <p>No users found..</p>
+                                </div>
+                            )}
                         </div>
                     </div>
                 </div>

@@ -1,8 +1,12 @@
 import { useState } from 'react';
+import { useToast } from '@/context/toast/ToastContext';
 import Button from '@/components/button/Button';
 import './UserModal.scss';
 
 const DeleteUserModal = ({ user, removeUser, closeModal }) => {
+
+    const { addToast } = useToast();
+
     const [loading, setLoading] = useState(false);
 
     const handleDelete = async () => {
@@ -12,6 +16,7 @@ const DeleteUserModal = ({ user, removeUser, closeModal }) => {
 
         setTimeout(() => {
             closeModal();      // closes UpdateUserModal underneath
+            addToast({ message: 'The user was deleted successfully.', type: 'success', duration: 2500 })
         }, 150);
     };
 

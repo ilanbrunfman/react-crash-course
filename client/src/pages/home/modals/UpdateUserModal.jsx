@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { useModal } from '@/context/modal/ModalContext';
+import { useToast } from '@/context/toast/ToastContext';
 import './UserModal.scss';
 
 import Button from '@/components/button/Button';
@@ -8,6 +9,7 @@ import DeleteUserModal from './DeleteUserModal';
 const UpdateUserModal = ({ user, editUser, removeUser, closeModal }) => {
 
     const { openModal } = useModal();
+    const { addToast } = useToast();
 
     const [form, setForm] = useState({
         firstName: user.firstName || '',
@@ -46,6 +48,7 @@ const UpdateUserModal = ({ user, editUser, removeUser, closeModal }) => {
             };
 
             await editUser(user.id, updatedData);
+            addToast({ message: 'User Updated successfully!', type: 'success', duration: 2500 })
             closeModal();
         } catch (err) {
             setError(err.message || 'Something went wrong');

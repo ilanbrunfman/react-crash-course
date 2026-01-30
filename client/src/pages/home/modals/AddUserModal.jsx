@@ -1,12 +1,12 @@
 import { useState } from 'react';
-// import { useUsers } from '@/hooks/useUsers';
+import { useToast } from '@/context/toast/ToastContext';
 import './UserModal.scss'
 
 import Button from '@/components/button/Button';
 
 const AddUserModal = ({ addUser, closeModal }) => {
 
-    // const { addUser } = useUsers();
+    const { addToast } = useToast();
 
     const [form, setForm] = useState({
         firstName: '',
@@ -39,6 +39,7 @@ const AddUserModal = ({ addUser, closeModal }) => {
             }
 
             await addUser(form); 
+            addToast({ message: 'User added successfully!', type: 'success', duration: 2500 })
             closeModal();       
         } catch (err) {
             setError(err.message || 'Something went wrong');
