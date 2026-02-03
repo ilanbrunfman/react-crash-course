@@ -1,10 +1,41 @@
 :root{
-    --max-width      : 1240px;
+    --max-width         : 1240px;
+
+    --moon-0            : #ffffff;
+    --moon-50           : #f7f8f9;
+    --moon-100          : #f1f5f9;
+    --moon-200          : #e2e8f0;
+    --moon-300          : #cbd5e1;
+    --moon-500          : #64748b;
+    --moon-700          : #334155;
+    --moon-900          : #0f172a;
+
+    --brand-primary     : #4880ff;
+    --brand-primary-rgb : 72, 128, 255;
+
+    --success           : #22c55e;
+    --warning           : #f59e0b;
+    --danger            : #ef4444;
     
    
 
-    
+    /* 🌙 DARK MODE */
     @media (prefers-color-scheme: dark) {
+
+        --color-bg              : #09090b; // #1B2431; 
+        --color-primary-bg        : #121212;
+        --color-sub-bg          : #26262a;
+        --color-surface         : #1e1e1e; // #273142;
+        --color-text            : #ffffff;
+        --color-text-muted      : #a1a1aa;
+
+        --color-border          : #28272a; // #313D4F; // #2c2c2c;
+        --color-button          : #333;
+
+        --color-primary         : #6ea2ff;
+
+
+        // OLD
         --white             : #212121; // #191b20; 
         --whiteRGB          : 40, 40, 40;
         --gray              : #4e4e4e; // #1b1a1a;
@@ -18,6 +49,20 @@
     }
 
     @media (prefers-color-scheme: light) {
+       
+        --color-bg              : var(--moon-50);
+        --color-primary-bg        : var(--moon-0);
+        --color-sub-bg          : var(--moon-50);
+        --color-surface         : var(--moon-0);
+        --color-text            : #213547;
+        --color-text-muted      : #5d5d5d;
+
+        --color-border          : var(--moon-200);
+        --color-button          : #e1e1e1;
+
+        --color-primary         : var(--brand-primary);
+
+        // OLD
         --white             : #ffffff; // #fafbfc;
         --whiteRGB          : 250, 251, 252;
         --pureWhite         : #ffffff;

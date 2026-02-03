@@ -53,8 +53,10 @@
     
     /* Variants */
     &-primary {
-        --btn-bg: #4f46e5;
-        --btn-bg-hover: #4338ca;
+        --btn-bg: rgba(var(--brand-primary-rgb), 0.9);
+        --btn-bg-hover: rgba(var(--brand-primary-rgb), 1.0);
+        // --btn-bg: #4f46e5;
+        // --btn-bg-hover: #4338ca;
         --btn-text: #ffffff;
     }
     
@@ -108,15 +110,23 @@
     
     /* 🌙 DARK MODE */
     @media (prefers-color-scheme: dark) {
-        .btn-ghost {
-            --btn-bg: #1f2937;
-            --btn-bg-hover: #374151;
-            --btn-text: #f9fafb;
+
+        &-ghost {
+            --btn-bg: var(--color-sub-bg);
+            --btn-bg-hover: #1d1d20;
+            --btn-text: #fff;
         }
+        // .btn-ghost {
+        //     --btn-bg: #1f2937;
+        //     --btn-bg-hover: #374151;
+        //     --btn-text: #f9fafb;
+        // }
     
         .btn-primary {
-            --btn-bg: #6366f1;
-            --btn-bg-hover: #4f46e5;
+            --btn-bg: rgba(var(--brand-primary-rgb), 1.0);
+            --btn-bg-hover: rgba(var(--brand-primary-rgb), 0.8);
+            // --btn-bg: #6366f1;
+            // --btn-bg-hover: #4f46e5;
         }
     
         .btn-success {

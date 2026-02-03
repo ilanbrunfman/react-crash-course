@@ -25,16 +25,21 @@
     border-radius: 8px;
     border: none;
     // border: 1px solid #d1d5db;
-    background-color: var(--background);;
+    background-color: var(--color-sub-bg); // var(--background);
     font-size: 14px;
     width: 100%;
     transition: border 0.2s, box-shadow 0.2s;
+    color: var(--color-text);
 
     &:focus {
       outline: none;
       border-color: #4f46e5;; // var(--gray); // #007bff;
       // box-shadow: 0 0 0 3px rgba(var(--black), 0.2);
       box-shadow: 0 0 0 2px rgba(79,70,229,0.15);
+    }
+
+    &::placeholder{
+      color: var(--color-text);
     }
   }
 

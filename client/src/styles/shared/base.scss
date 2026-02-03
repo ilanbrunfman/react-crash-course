@@ -43,8 +43,12 @@
 
 body {
     min-height: 100vh;
-    color: var(--color-text); // var(--copy);
-    background: var(--background);
+    // color: var(--color-text); // var(--copy);
+    // background: var(--background);
+
+    background: var(--color-bg);
+    color: var(--color-text);
+    
     transition:
         color 0.5s,
         background-color 0.5s;
@@ -174,6 +178,7 @@ a{
         &-1 { grid-template-columns: repeat(1, 1fr); } 
         &-2 { grid-template-columns: repeat(2, 1fr); 
             &-7-3 { grid-template-columns: 2fr 7fr 3fr; }
+            &-10 { grid-template-columns: 2fr 10fr; }
         } 
         &-3 { grid-template-columns: repeat(3, 1fr); 
             &-6-3 { grid-template-columns: 3fr 6fr 3fr; }

@@ -14,7 +14,7 @@
       "lastName": "Brunfman",
       "email": "chen.brunfman@gmail.com",
       "password": "askldnflka1234",
-      "type": "customer"
+      "type": "guest"
     },
     {
       "id": "b882",
@@ -22,7 +22,7 @@
       "lastName": "Brunfman",
       "email": "gilad.brunfman@gmail.com",
       "password": "something#lse12",
-      "type": "guest"
+      "type": "customer"
     }
   ]
 }

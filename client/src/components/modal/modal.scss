@@ -13,7 +13,7 @@
   z-index: 1000;
     
   &-content {
-    background: var(--white);
+    background-color: var( --color-primary-bg); // var(--color-surface); // var(--white);
     border-radius: 8px;
     width: 90%;
     max-width: 500px;
@@ -25,5 +25,6 @@
     border: none;
     font-size: 20px;
     cursor: pointer;
+    color: var(--color-text);
   }
 }

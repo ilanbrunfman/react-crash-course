@@ -8,6 +8,7 @@ import {
 import MainLayout from './layouts/MainLayout'
 import HomePage from './pages/home/HomePage'
 import AboutPage from './pages/about/AboutPage'
+import AboutDynamic from './pages/about/AboutDynamic'
 import ContactPage from './pages/contact/ContactPage'
 import NotFoundPage from './pages/notFound/NotFoundPage'
 
@@ -18,7 +19,9 @@ const App = () => {
             <>
                 <Route path='/' element={ <MainLayout />} >
                     <Route index element={ <HomePage /> } />
-                    <Route path='/about' element={ <AboutPage /> } />
+                    <Route path='/about' element={ <AboutPage /> } >
+                        <Route path=":slug" element={ <AboutDynamic /> } />
+                    </Route>
                     <Route path='/contact' element={ <ContactPage /> } />
                 </Route>
     

@@ -1,0 +1,39 @@
+@use "@/styles/shared/variables" as var;
+
+.sidebar{
+
+    &-container{
+        position: relative;
+        width: 100%;
+        background-color: var(--color-surface);
+        border: solid 1px var(--color-border);
+        border-radius: 14px;
+
+        @media (min-width: var.$md) {
+            position: sticky;
+        }
+    }
+
+    &-header{}
+    &-nav{
+        padding: 14px;
+
+        .nav{
+            &-link{
+                display: flex;
+                padding: 14px 14px;
+                border-radius: 7px;
+                font-weight: 600;
+                font-size: 13px;
+
+                &.active{
+                    color: rgba(var(--brand-primary-rgb), 1.0);
+                    background-color: rgba(var(--brand-primary-rgb), 0.125);
+                    // color: rgba(#4880FF, 1.0);
+                    // background-color: rgba(#4880FF, 0.125);
+                }
+            }
+        }
+    }
+    &-footer{}
+}
