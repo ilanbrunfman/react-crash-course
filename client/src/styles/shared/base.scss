@@ -158,6 +158,27 @@ a{
     @media (min-width: var.$xl) { &-xl { @include text-align } }
 }
 
+.fw{
+    @mixin font-weight{
+        &-bold{ font-weight: bold; } 
+        &-900{ font-weight: 900; } 
+        &-800{ font-weight: 800; } 
+        &-700{ font-weight: 700; } 
+        &-600{ font-weight: 600; } 
+        &-500{ font-weight: 500; } 
+        &-400{ font-weight: 400; } 
+        &-300{ font-weight: 300; } 
+        &-200{ font-weight: 200; } 
+        &-100{ font-weight: 100; }
+
+        @media (min-width: var.$xsm) { @include font-weight }
+        @media (min-width: var.$sm) { &-sm { @include font-weight } }
+        @media (min-width: var.$md) { &-md { @include font-weight } }
+        @media (min-width: var.$lg) { &-lg { @include font-weight } }
+        @media (min-width: var.$xl) { &-xl { @include font-weight } }
+    }
+}
+
 .d{
     @mixin display{
         &-grid{ display: grid; } 

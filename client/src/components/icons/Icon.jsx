@@ -1,16 +1,18 @@
-import IconUser from './IconUser'
-import IconPlus from './IconPlus'
-import IconX from './IconX'
 import IconHome from './IconHome'
+import IconMinus from './IconMinus'
+import IconPlus from './IconPlus'
 import IconTrash from './IconTrash'
+import IconUser from './IconUser'
+import IconX from './IconX'
 
 // Register all your icons here
 const icons = {
-    IconUser: IconUser,
-    IconPlus: IconPlus,
-    IconX: IconX,
     IconHome: IconHome,
+    IconMinus: IconMinus,
+    IconPlus: IconPlus,
     IconTrash: IconTrash,
+    IconUser: IconUser,
+    IconX: IconX,
 };
 
 const Icon = ({ name, size = 18, strokeWidth = 2, color, className = '', ...props }) => {

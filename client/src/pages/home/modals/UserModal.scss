@@ -33,8 +33,7 @@
 
     &:focus {
       outline: none;
-      border-color: #4f46e5;; // var(--gray); // #007bff;
-      // box-shadow: 0 0 0 3px rgba(var(--black), 0.2);
+      border-color: #4f46e5; // #007bff;
       box-shadow: 0 0 0 2px rgba(79,70,229,0.15);
     }
 

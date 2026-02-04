@@ -54,10 +54,10 @@
       border-radius: 0;
       cursor: pointer;
       // color: #555;
-      color: rgba(var(--blackRGB), 0.5);
+      color: rgba(var(--color-text), 0.5);
 
       &:hover {
-        color: rgba(var(--blackRGB), 1.0);
+        color: rgba(var(--color-text), 1.0);
         background-color: transparent;
       }
     }

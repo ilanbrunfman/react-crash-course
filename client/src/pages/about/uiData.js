@@ -1,9 +1,11 @@
-import GoodDay from "./ui/GoodDay"
-import HelloWorld from "./ui/HelloWorld"
+import CardsUI from "./ui/CardsUI"
+import FAQUI from "./ui/FAQUI"
+import TabsUI from "./ui/TabsUI"
 
 export const aboutPages = [
-  { slug: "tabs", label: "Tabs", component: GoodDay },
-  { slug: "faq", label: "FAQ", component: HelloWorld },
-  { slug: "form-steps", label: "Form steps", component: HelloWorld },
-  { slug: "animation", label: "Animation", component: HelloWorld },
+  // { slug: "animation", label: "Animation", component: FAQUI },
+  { slug: "cards", label: "Cards", component: CardsUI },
+  { slug: "faq", label: "FAQs", component: FAQUI },
+  // { slug: "form-steps", label: "Form steps", component: FAQUI },
+  { slug: "tabs", label: "Tabs", component: TabsUI },
 ]

@@ -16,6 +16,17 @@
     --success           : #22c55e;
     --warning           : #f59e0b;
     --danger            : #ef4444;
+
+    --radius-lg         : 21px;
+    --radius-md         : 14px;
+    --radius-sm         : 7px;
+
+    --space-0           : 0px;
+    --space-1           : 10px;
+    --space-2           : 20px;
+    --space-3           : 30px;
+    --space-4           : 40px;
+    --space-5           : 50px;
     
    
 
@@ -32,20 +43,11 @@
         --color-border          : #28272a; // #313D4F; // #2c2c2c;
         --color-button          : #333;
 
-        --color-primary         : #6ea2ff;
+        --color-primary         : #6ea2ff; // #4880FF
 
 
         // OLD
-        --white             : #212121; // #191b20; 
-        --whiteRGB          : 40, 40, 40;
-        --gray              : #4e4e4e; // #1b1a1a;
-        --black             : #ffffff;
-        --blackRGB          : 255, 255, 255;
-        --primaryColor      : #4880FF;
-        --primaryColorRGB   : 72, 128, 255;
-
         --background        : #212121;
-        --btn               : #4e4e4e;
     }
 
     @media (prefers-color-scheme: light) {
@@ -63,18 +65,9 @@
         --color-primary         : var(--brand-primary);
 
         // OLD
-        --white             : #ffffff; // #fafbfc;
-        --whiteRGB          : 250, 251, 252;
-        --pureWhite         : #ffffff;
-        --gray              : #f6f7f9; // #FCFDFD;
-        --black             : #213547;
-        --blackRGB          : 32, 33, 36;
-        --primaryColor      : #4880FF;
         --copy              : #5d5d5d; // #213547;
         --copyRGB           : 93, 93, 93; // 32, 33, 36;
-
         --background        : #f7f8f9;
-        --btn               : #e1e1e1;
     }
 }
 

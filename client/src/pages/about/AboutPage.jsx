@@ -11,7 +11,8 @@ const AboutPage = () => {
     
     useEffect(() => {
         if (isIndex && aboutPages.length) {
-            navigate(aboutPages[0].slug, { replace: true })
+            const sortedAboutPages = [...aboutPages].sort((a, b) => a.label.localeCompare(b.label))
+            navigate(sortedAboutPages[0].slug, { replace: true })
         }
     }, [isIndex, navigate])
 
@@ -26,7 +27,9 @@ const AboutPage = () => {
 
                 <div className="row">
                     <div className="col-12 d-grid grid-md-3-9 gap-2">
-                        <Sidebar />
+                        <div className="col">
+                            <Sidebar />
+                        </div>
                         <div className="col ">
                             <Outlet />
                         </div>

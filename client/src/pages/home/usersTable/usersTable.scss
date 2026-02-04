@@ -28,13 +28,12 @@
 
         &:hover{
             // background-color: #313D4F;
-            // background-color: rgba(var(--primaryColorRGB), 0.125);
         }
     }
     .label{
         font-size: 14px;
         font-weight: bold;
-        color: var(--black);
+        color: var(--color-text);
         text-transform: uppercase;
         padding: 7px 14px;
     }
@@ -51,7 +50,7 @@
             cursor: pointer;
 
             &:hover{
-                color: var(--primaryColor);
+                color: var(--color-primary);
             }
         }
 
