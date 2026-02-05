@@ -14,7 +14,7 @@ const HomePage = () => {
     const { users, loading, error, addUser, editUser, removeUser } = useUsers();
     usePageMeta({
         title: "Good Day",
-        icon: "/icons/sun.png",
+        icon: "/icons/react.svg",
     })
     const { openModal } = useModal();
 

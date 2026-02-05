@@ -7,16 +7,19 @@ const AboutDynamic = () => {
 
     const page = aboutPages.find(p => p.slug === slug)
 
-    // Handle 404 early
-    if (!page) {
-        usePageMeta({ title: "Not Found" })
-        return <p>Page not found.</p>
-    }
-
     // Use title from config
     usePageMeta({
         title: page.title || page.label,
+        icon: "/icons/react.svg",
     })
+
+    // Handle 404 early
+    if (!page) {
+        usePageMeta({ title: "Not Found", icon: "/icons/react.svg", })
+        return <p>Page not found.</p>
+    }
+
+    
 
     const Component = page.component
 

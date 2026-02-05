@@ -10,7 +10,7 @@ const ContactPage = () => {
         <div className="contact">
             <div className="container">
                 <div className="row">
-                    <div className="col-12">
+                    <div className="col-12 pt-2 mb-2">
                         <h1>Contact Page</h1>
                     </div>
                 </div>
