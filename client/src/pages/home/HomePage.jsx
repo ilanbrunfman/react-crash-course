@@ -1,6 +1,7 @@
 
 import { useState } from 'react';
 import { useUsers } from '@/hooks/useUsers';
+import { usePageMeta } from "@/hooks/usePageMeta";
 import { useModal } from '@/context/modal/ModalContext';
 import { useUserFilter, useUserSort } from '@/hooks/useUserFilter';
 
@@ -11,6 +12,10 @@ import Button from '@/components/button/Button';
 
 const HomePage = () => {
     const { users, loading, error, addUser, editUser, removeUser } = useUsers();
+    usePageMeta({
+        title: "Good Day",
+        icon: "/icons/sun.png",
+    })
     const { openModal } = useModal();
 
     const [search, setSearch] = useState('');

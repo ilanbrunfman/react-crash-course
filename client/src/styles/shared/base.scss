@@ -87,6 +87,11 @@ a{
     cursor: pointer; 
     color: inherit;
 }
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
 
 .select-none{
     user-select: none;

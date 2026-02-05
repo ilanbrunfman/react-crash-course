@@ -1,0 +1,36 @@
+.ui-image {
+    position: relative;
+    display: block;
+    overflow: hidden;
+    background: var(--gray);
+
+    img {
+        width: 100%;
+        height: 100%;
+        display: block;
+    }
+
+    &.fit-cover img {
+        object-fit: cover;
+    }
+
+    &.fit-contain img {
+        object-fit: contain;
+        background: var(--white);
+    }
+
+    &.is-rounded {
+        border-radius: 12px;
+    }
+
+    &.is-circle {
+        border-radius: 50%;
+    }
+    
+    /* Aspect ratio system */
+    &.has-ratio {
+        aspect-ratio: var(--ratio);
+    }
+}
+
+

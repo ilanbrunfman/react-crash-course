@@ -7,8 +7,10 @@ const Card = ({
     className = "",
 }) => {
     return (
-        <div className={`card card-${variant} ${ interactive ? "card-interactive" : ""} ${className}`}>
-            {children}
+        <div className="card">
+            <div className={`card-container card-${variant} ${ interactive ? "card-interactive" : ""} ${className}`}>
+                {children}
+            </div>
         </div>
     )
 }

@@ -1,4 +1,11 @@
+import { usePageMeta } from "@/hooks/usePageMeta";
+
 const ContactPage = () => {
+    usePageMeta({
+        title: "Contact Page",
+        subtitle: "Test",
+        icon: "/icons/ib.svg",
+    })
     return (
         <div className="contact">
             <div className="container">

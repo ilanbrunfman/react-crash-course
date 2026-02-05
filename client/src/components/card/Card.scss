@@ -1,10 +1,13 @@
 @use "@/styles/shared/variables" as var;
 
 .card {
-    border: solid 1px var(--color-border);
-    border-radius: var(--radius-md);
     transition: 0.25s;
-    overflow: hidden;
+    
+    &-container{
+        border: solid 1px var(--color-border);
+        border-radius: var(--radius-md);
+        overflow: hidden;
+    }
 
     &-elevated {
         background: var(--color-surface);

@@ -1,4 +1,5 @@
-import { useParams } from 'react-router-dom';
+import { useParams } from "react-router-dom"
+import { usePageMeta } from "@/hooks/usePageMeta"
 import { aboutPages } from "./uiData"
 
 const AboutDynamic = () => {
@@ -6,11 +7,20 @@ const AboutDynamic = () => {
 
     const page = aboutPages.find(p => p.slug === slug)
 
-    if (!page) return <p>Page not found.</p>
+    // Handle 404 early
+    if (!page) {
+        usePageMeta({ title: "Not Found" })
+        return <p>Page not found.</p>
+    }
 
-    const Component = page.component   // 🧠 THIS is the key
+    // Use title from config
+    usePageMeta({
+        title: page.title || page.label,
+    })
+
+    const Component = page.component
 
     return <Component />
-};
+}
 
-export default AboutDynamic;
+export default AboutDynamic
