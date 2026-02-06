@@ -2,7 +2,8 @@ import { motion } from 'framer-motion';
 import {
     backdropAnimation,
     modalAnimations,
-    modalDurations
+    modalDurations,
+    modalSprings,
 } from './modalAnimations'
 
 import './Modal.scss'
@@ -11,6 +12,7 @@ const Modal = ({ children, onClose, config }) => {
 
     const animation = modalAnimations[config.variant] || modalAnimations["slide-up"]
     const duration = config.duration || modalDurations.normal
+    const transition = config.spring ? modalSprings[config.spring] : { duration } 
 
     return (
         <motion.div
@@ -29,7 +31,9 @@ const Modal = ({ children, onClose, config }) => {
                 initial="initial"
                 animate="animate"
                 exit="exit"
-                transition={duration}
+                // transition={duration}
+                // transition={modalSprings.snappy}
+                transition={transition}
             >
                 {children}
             </motion.div>

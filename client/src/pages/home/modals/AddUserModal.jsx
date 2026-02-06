@@ -4,8 +4,9 @@ import './UserModal.scss'
 
 import Button from '@/components/button/Button';
 
-const AddUserModal = ({ addUser, closeModal }) => {
 
+const AddUserModal = ({ addUser, closeModal }) => {
+    
     const { addToast } = useToast();
 
     const [form, setForm] = useState({
@@ -106,7 +107,10 @@ const AddUserModal = ({ addUser, closeModal }) => {
 
 // Modal Config
 AddUserModal.modalConfig = {
-    modalClass: 'modal-add-user'
+    modalClass: 'modal-add-user',
+    variant: 'slide-up',
+    spring: 'snappy',
+    // duration: 2.0,
 };
 
 export default AddUserModal

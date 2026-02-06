@@ -121,8 +121,9 @@ const UpdateUserModal = ({ user, editUser, removeUser, closeModal }) => {
 
 UpdateUserModal.modalConfig = {
     modalClass: 'modal-update-user',
-    // variant: 'fade',
-    // duration: 0.01,
+    variant: 'slide-up',
+    // spring: 'snappy',
+    duration: 0.5,
 };
 
 export default UpdateUserModal;
