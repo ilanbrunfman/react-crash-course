@@ -13,8 +13,7 @@ const ModalWrapper = ({ component: Component, props, closeModal, zIndex }) => {
         <Modal 
             isOpen 
             onClose={closeModal} 
-            title={config.title}
-            modalClass={config.modalClass}
+            config={config}
             style={{ zIndex }}
         >
             <Component {...props} closeModal={closeModal} />

@@ -1,22 +1,35 @@
 import { motion } from 'framer-motion';
+import {
+    backdropAnimation,
+    modalAnimations,
+    modalDurations
+} from './modalAnimations'
+
 import './Modal.scss'
 
-const Modal = ({ children, onClose, modalClass }) => {
+const Modal = ({ children, onClose, config }) => {
+
+    const animation = modalAnimations[config.variant] || modalAnimations["slide-up"]
+    const duration = config.duration || modalDurations.normal
+
     return (
         <motion.div
-            className={`modal ${modalClass || ''}`}
+            className={`modal ${config.modalClass || ''}`}
             onClick={onClose}
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}  
+            variants={backdropAnimation}
+            initial="initial"
+            animate="animate"
+            exit="exit" 
+            transition={{ duration: duration * 0.8}}
         >
             <motion.div
                 className="modal-content"
                 onClick={(e) => e.stopPropagation()}
-                initial={{ y: 40, opacity: 0, scale: 0.95 }}
-                animate={{ y: 0, opacity: 1, scale: 1 }}
-                exit={{ y: 40, opacity: 0, scale: 0.95 }}
-                transition={{ duration: 0.25 }}
+                variants={animation}
+                initial="initial"
+                animate="animate"
+                exit="exit"
+                transition={duration}
             >
                 {children}
             </motion.div>
