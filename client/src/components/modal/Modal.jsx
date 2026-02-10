@@ -31,8 +31,6 @@ const Modal = ({ children, onClose, config }) => {
                 initial="initial"
                 animate="animate"
                 exit="exit"
-                // transition={duration}
-                // transition={modalSprings.snappy}
                 transition={transition}
             >
                 {children}

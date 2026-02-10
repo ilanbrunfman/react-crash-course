@@ -108,7 +108,7 @@ const AddUserModal = ({ addUser, closeModal }) => {
 // Modal Config
 AddUserModal.modalConfig = {
     modalClass: 'modal-add-user',
-    variant: 'slide-up',
+    variant: 'slide-right',
     spring: 'snappy',
     // duration: 2.0,
 };
