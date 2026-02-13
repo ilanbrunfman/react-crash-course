@@ -143,6 +143,10 @@ img {
     position: relative;
     width: 100%;
 }
+.lowercase{ text-transform: lowercase; }
+.uppercase{ text-transform: uppercase; }
+.capitalize{ text-transform: capitalize; }
+.underline{ text-decoration: underline; }
 
 .align {
     @mixin text-align{

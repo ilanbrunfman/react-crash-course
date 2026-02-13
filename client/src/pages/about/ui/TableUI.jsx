@@ -119,7 +119,7 @@ const TableUI = () => {
         <div className="good-day ">
             <div className="row">
                 <div className="col-12">
-                    <h1 className="mb-2">Table UI</h1>
+                    <h1 className="mb-2">Table List UI</h1>
                 </div>
             </div>
             <div className="row">

@@ -1,67 +1,17 @@
 @use "@/styles/shared/variables" as var;
 
 .table{
-    // border-radius: 14px;
-    // overflow: hidden;
-    // border: solid 1px var(--color-border);
-
-    // &-header{
-    //     & .row{
-    //         // background-color: #313D4F !important;
-    //          background-color: var(--color-sub-bg) !important;
-    //         &:first-child{
-    //             border-top: none;
-    //         }
-    //     }
-
-    // }
-    // &-body{}
-
-    // & .row{
-    //     display: grid;
-    //     grid-template-columns: 1fr 3fr 4fr 2fr 1fr;
-    //     align-items: center;
-    //     min-height: 48px;
-    //     border-top: solid 1px var(--color-border);
-    //     // border-top: solid 1px rgba(#979797, 0.4);
-    //     background-color: var(--color-primary-bg);
-
-    //     &:hover{
-    //         // background-color: #313D4F;
-    //     }
-    // }
-    // .label{
-    //     font-size: 14px;
-    //     font-weight: bold;
-    //     color: var(--color-text);
-    //     text-transform: uppercase;
-    //     padding: 7px 14px;
-    // }
-
-    .list{
-        font-size: 14px;
-        font-weight: 400;
-        color: var(--copy);
-        text-transform: capitalize;
-        // padding: 7px 14px;
-
+    .item{
         &-link{
-            text-decoration: underline;
             cursor: pointer;
 
-            &:hover{
-                color: var(--color-primary);
-            }
+            &:hover{ color: var(--color-primary); }
         }
 
         &-input{
             border: none;
             outline: none;
             background: none;
-        }
-
-        &.lowercase{
-            text-transform: lowercase;
         }
     }
 }
