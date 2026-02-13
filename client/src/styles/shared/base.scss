@@ -144,7 +144,7 @@ img {
     width: 100%;
 }
 
-.text {
+.align {
     @mixin text-align{
         &-left{ text-align: left; } 
         &-start { text-align: left; } 

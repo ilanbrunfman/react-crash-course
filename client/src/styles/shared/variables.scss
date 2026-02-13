@@ -9,6 +9,10 @@
     --moon-500          : #64748b;
     --moon-700          : #334155;
     --moon-900          : #0f172a;
+    
+    --moon-0-rgb        : 255, 255, 255;
+    --moon-50-rgb       : 247, 248, 249;
+    --moon-900-rgb      : 15, 23, 42;
 
     --brand-primary     : #4880ff;
     --brand-primary-rgb : 72, 128, 255;
@@ -33,7 +37,7 @@
     /* 🌙 DARK MODE */
     @media (prefers-color-scheme: dark) {
 
-        --color-bg              : #09090b; // #1B2431; 
+        --color-bg              : #111111; // #09090b; // #1B2431; 
         --color-primary-bg        : #121212;
         --color-sub-bg          : #26262a;
         --color-surface         : #1e1e1e; // #273142;
@@ -45,6 +49,11 @@
 
         --color-primary         : #6ea2ff; // #4880FF
 
+        --black-rgb             : var(--moon-900-rgb);
+
+        --white                 : #1e1e1e; // var(--moon-900);
+        --black                 : var(--moon-0);
+
 
         // OLD
         --background        : #212121;
@@ -53,7 +62,7 @@
     @media (prefers-color-scheme: light) {
        
         --color-bg              : var(--moon-50);
-        --color-primary-bg        : var(--moon-0);
+        --color-primary-bg      : var(--moon-0);
         --color-sub-bg          : var(--moon-50);
         --color-surface         : var(--moon-0);
         --color-text            : #213547;
@@ -63,6 +72,13 @@
         --color-button          : #e1e1e1;
 
         --color-primary         : var(--brand-primary);
+
+        --white                 : var(--moon-0);
+        --white-rgb             : var(--moon-0-rgb);
+        --sub                   : var(--moon-50);
+        --sub-rgb               : var(--moon-50-rgb);
+        --black                 : var(--moon-900);
+        --black-rgb             : var(--moon-900-rgb);
 
         // OLD
         --copy              : #5d5d5d; // #213547;

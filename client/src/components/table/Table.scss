@@ -1,0 +1,96 @@
+@use "@/styles/shared/variables" as var;
+
+.table{
+    width: 100%;
+    border-collapse: collapse;
+    border-radius: 0;
+    border: none;
+    overflow: hidden;
+
+    &-wrapper{
+        width: 100%;
+        overflow-x: auto;
+    }
+    &.is-striped tbody tr:nth-child(odd) .table-cell{
+        background-color: rgba(var(--black-rgb), 0.03);
+            // background-color: red;
+    }
+    &-head{
+        .table{
+            &-row{
+                overflow: hidden;
+                border-top-left-radius: 12px;
+                border-top-right-radius: 12px;
+            }
+            &-cell{
+                font-weight: 600;
+                // background-color: rgba(var(--black-rgb), 0.05);
+                color: var(--black);
+                text-align: left;
+                
+                &:first-child{ border-top-left-radius: 12px; }
+                &:last-child{ border-top-right-radius: 12px; }
+            }
+        }
+
+    }
+    &-body{
+        margin-bottom: 2.0rem;
+        .table{
+            &-row{
+                &:last-child{
+                    .table-cell{
+                        &:first-child{ border-bottom-left-radius: 12px; }
+                        &:last-child{ border-bottom-right-radius: 12px; }
+                    }
+                }
+            }
+            &-cell{
+                
+            }
+        }
+    }
+    &-row{}
+    &-cell{
+        padding: 0.75rem 1rem;
+        text-align: left;
+        background-color: var(--white);
+
+        &.align{
+            &-center{ text-align: center;}
+            &-right{ text-align: right;}
+        }
+
+        &.test{
+            background-color: red;
+        }
+    }
+
+    
+    &-pagination{
+        width: 100%;
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        gap: 1rem;
+        margin-top: 1rem;
+
+        button {
+            padding: 0.4rem 0.8rem;
+            border-radius: 6px;
+            border: 1px solid var(--gray-300);
+            background: white;
+            cursor: pointer;
+            transition: 0.2s;
+
+            &:hover:not(:disabled) {
+            background: var(--gray-100);
+            }
+
+            &:disabled {
+            opacity: 0.35;
+            cursor: not-allowed;
+            }
+        }
+    }
+}

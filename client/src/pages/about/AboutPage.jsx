@@ -30,7 +30,7 @@ const AboutPage = () => {
                         <div className="col">
                             <Sidebar />
                         </div>
-                        <div className="col ">
+                        <div className="col">
                             <Outlet />
                         </div>
                     </div>

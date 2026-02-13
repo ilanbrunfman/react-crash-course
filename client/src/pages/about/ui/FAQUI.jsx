@@ -26,7 +26,7 @@ const FAQUI = () => {
             </div>
             <div className="row">
                 <div className="col-12">
-                    <FAQ items={faqData} allowMultiple={false} />
+                    <FAQ items={faqData} allowMultiple={true} />
                 </div>
             </div>
         </div>
