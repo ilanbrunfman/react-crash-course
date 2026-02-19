@@ -8,4 +8,59 @@
         border: solid 1px var(--color-border);
         border-radius: 14px;
     }
+
+    .modal-ui{
+        .form{
+            &-group {
+                display: flex;
+                flex-direction: column;
+                gap: 6px;
+            }
+    
+            &-label {
+                font-size: 14px;
+                font-weight: 600;
+                color: #444;
+            }
+    
+            &-select {
+                appearance: none; /* remove default OS styling */
+                -webkit-appearance: none;
+                -moz-appearance: none;
+    
+                width: 320px;
+                padding: 10px 12px;
+                font-size: 14px;
+                border: 1px solid #dcdcdc;
+                border-radius: 8px;
+                background-color: #fff;
+                cursor: pointer;
+                transition: all 0.2s ease;
+    
+                /* Custom arrow */
+                background-image: url("data:image/svg+xml;utf8,<svg fill='%23666' height='20' viewBox='0 0 20 20' width='20' xmlns='http://www.w3.org/2000/svg'><path d='M5 7l5 5 5-5z'/></svg>");
+                background-repeat: no-repeat;
+                background-position: right 10px center;
+                background-size: 16px;
+                
+                &-select:hover {
+                    border-color: #999;
+                }
+        
+                &-select:focus {
+                    outline: none;
+                    border-color: #4f46e5;
+                    box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.15);
+                }
+        
+                /* Option styling (limited support across browsers) */
+                &-select option {
+                    padding: 8px;
+                    font-size: 14px;
+                }
+            }
+        }
+
+
+    }
 }

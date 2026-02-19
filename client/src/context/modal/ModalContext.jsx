@@ -13,9 +13,10 @@ export const useModal = () => {
 export const ModalProvider = ({ children }) => {
     const [modals, setModals] = useState([]);
 
-    const openModal = (component, props = {}) => {
+    const openModal = (component, props = {}, configOverrides = {}) => {
         const id = crypto.randomUUID();
-        setModals(prev => [...prev, { id, component, props }]);
+        const mergedConfig = { ...(component.modalConfig || {}), ...configOverrides };
+        setModals(prev => [...prev, { id, component, props, config: mergedConfig }]);
     };
 
     const closeModal = () => {

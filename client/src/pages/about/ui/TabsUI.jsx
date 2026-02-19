@@ -8,7 +8,7 @@ const TabsUI = () => {
     ]
 
     return (
-        <div className="good-day ">
+        <div className="tabs-ui ">
             <div className="row">
                 <div className="col-12">
                     <h1 className="mb-2">Tabs UI</h1>

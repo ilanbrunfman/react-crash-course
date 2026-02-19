@@ -2,12 +2,12 @@ import { useModal } from './modalContext';
 import Modal from '@/components/modal/Modal';
 import { AnimatePresence } from 'framer-motion';
 
-const ModalWrapper = ({ component: Component, props, closeModal, zIndex }) => {
+const ModalWrapper = ({ component: ModalComponent, props, config, closeModal, zIndex }) => {
 
-    const config = {
-        ...(Component.modalConfig || {}),
-        ...props
-    };
+    // const config = {
+    //     ...(Component.modalConfig || {}),
+    //     ...props
+    // };
 
     return (
         <Modal 
@@ -16,7 +16,7 @@ const ModalWrapper = ({ component: Component, props, closeModal, zIndex }) => {
             config={config}
             style={{ zIndex }}
         >
-            <Component {...props} closeModal={closeModal} />
+            <ModalComponent {...props} closeModal={closeModal} />
         </Modal>
     );
 };
@@ -31,6 +31,7 @@ const ModalHost = () => {
                     key={modal.id}
                     component={modal.component}
                     props={modal.props}
+                    config={modal.config}
                     closeModal={closeModal}
                     zIndex={1000 + index} // stack visually
                 />
