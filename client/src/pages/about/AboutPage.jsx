@@ -21,7 +21,7 @@ const AboutPage = () => {
             <div className="container">
                 <div className="row">
                     <div className="col-12 pt-2 mb-2">
-                        <h1>About Page</h1>
+                        <h1>User Interface Components</h1>
                     </div>
                 </div>
 
