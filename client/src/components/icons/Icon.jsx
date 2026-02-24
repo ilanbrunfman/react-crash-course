@@ -1,3 +1,4 @@
+import IconArrowLeft from './IconArrowLeft'
 import IconHome from './IconHome'
 import IconMinus from './IconMinus'
 import IconPlus from './IconPlus'
@@ -7,6 +8,7 @@ import IconX from './IconX'
 
 // Register all your icons here
 const icons = {
+    IconArrowLeft: IconArrowLeft,
     IconHome: IconHome,
     IconMinus: IconMinus,
     IconPlus: IconPlus,

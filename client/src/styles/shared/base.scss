@@ -148,18 +148,32 @@ img {
 .capitalize{ text-transform: capitalize; }
 .underline{ text-decoration: underline; }
 
+@mixin text-align {
+    &-left{ text-align: left; } 
+    &-center { text-align: center; } 
+    &-right{ text-align: right; } 
+    &-underline{ text-decoration: underline;}
+    &-uppercase{ text-transform: uppercase ;}
+    &-capitalize{ text-transform: capitalize ;}
+    &-wrap{ white-space: pre; }
+}
+.text{
+    @media (min-width: var.$xsm) { @include text-align  }
+    @media (min-width: var.$sm) { &-sm { @include text-align } }
+    @media (min-width: var.$md) { &-md { @include text-align } }
+    @media (min-width: var.$lg) { &-lg { @include text-align } }
+    @media (min-width: var.$xl) { &-xl { @include text-align } }
+}
+
+@mixin text-align{
+    &-left{ text-align: left; } 
+    &-start { text-align: left; } 
+    &-center { text-align: center; } 
+    &-right{ text-align: right; } 
+    &-end { text-align: right; }
+}
+
 .align {
-    @mixin text-align{
-        &-left{ text-align: left; } 
-        &-start { text-align: left; } 
-        &-center { text-align: center; } 
-        &-right{ text-align: right; } 
-        &-end { text-align: right; }
-        &-underline{ text-decoration: underline;}
-        &-uppercase{ text-transform: uppercase ;}
-        &-capitalize{ text-transform: capitalize ;}
-        &-wrap{ white-space: pre; }
-    }
     @media (min-width: var.$xsm) { @include text-align }
     @media (min-width: var.$sm) { &-sm { @include text-align } }
     @media (min-width: var.$md) { &-md { @include text-align } }
@@ -167,35 +181,36 @@ img {
     @media (min-width: var.$xl) { &-xl { @include text-align } }
 }
 
-.fw{
-    @mixin font-weight{
-        &-bold{ font-weight: bold; } 
-        &-900{ font-weight: 900; } 
-        &-800{ font-weight: 800; } 
-        &-700{ font-weight: 700; } 
-        &-600{ font-weight: 600; } 
-        &-500{ font-weight: 500; } 
-        &-400{ font-weight: 400; } 
-        &-300{ font-weight: 300; } 
-        &-200{ font-weight: 200; } 
-        &-100{ font-weight: 100; }
+@mixin font-weight {
+    &-bold { font-weight: bold; }
+    &-900  { font-weight: 900; }
+    &-800  { font-weight: 800; }
+    &-700  { font-weight: 700; }
+    &-600  { font-weight: 600; }
+    &-500  { font-weight: 500; }
+    &-400  { font-weight: 400; }
+    &-300  { font-weight: 300; }
+    &-200  { font-weight: 200; }
+    &-100  { font-weight: 100; }
+}
 
-        @media (min-width: var.$xsm) { @include font-weight }
-        @media (min-width: var.$sm) { &-sm { @include font-weight } }
-        @media (min-width: var.$md) { &-md { @include font-weight } }
-        @media (min-width: var.$lg) { &-lg { @include font-weight } }
-        @media (min-width: var.$xl) { &-xl { @include font-weight } }
-    }
+.fw{
+    @media (min-width: var.$xsm) { @include font-weight  }
+    @media (min-width: var.$sm) { &-sm { @include font-weight } }
+    @media (min-width: var.$md) { &-md { @include font-weight } }
+    @media (min-width: var.$lg) { &-lg { @include font-weight } }
+    @media (min-width: var.$xl) { &-xl { @include font-weight } }
+}
+
+ @mixin display{
+    &-grid{ display: grid; } 
+    &-flex{ display: flex; } 
+    &-block{ display: block; } 
+    &-inline{ display: inline; } 
+    &-none{ display: none; } 
 }
 
 .d{
-    @mixin display{
-        &-grid{ display: grid; } 
-        &-flex{ display: flex; } 
-        &-block{ display: block; } 
-        &-inline{ display: inline; } 
-        &-none{ display: none; } 
-    }
     @media (min-width: var.$xsm) { @include display }
     @media (min-width: var.$sm) { &-sm { @include display } }
     @media (min-width: var.$md) { &-md { @include display } }
@@ -203,35 +218,36 @@ img {
     @media (min-width: var.$xl) { &-xl { @include display } }
 }
 
+@mixin grid-columns{
+    &-1 { grid-template-columns: repeat(1, 1fr); } 
+    &-2 { grid-template-columns: repeat(2, 1fr); 
+        &-7-3 { grid-template-columns: 2fr 7fr 3fr; }
+        &-10 { grid-template-columns: 2fr 10fr; }
+    } 
+    &-3 { grid-template-columns: repeat(3, 1fr); 
+        &-6-3 { grid-template-columns: 3fr 6fr 3fr; }
+        &-9 { grid-template-columns: 3fr 9fr; }
+    } 
+    &-4 { grid-template-columns: repeat(4, 1fr);
+        &-8 { grid-template-columns: 4fr 8fr; }
+    } 
+    &-5 { grid-template-columns: repeat(5, 1fr); 
+        &-7 { grid-template-columns: 5fr 7fr; }
+    } 
+    &-6 { grid-template-columns: repeat(6, 1fr); } 
+    &-7 { grid-template-columns: repeat(7, 1fr); 
+        &-5 { grid-template-columns: 7fr 5fr;} 
+    } 
+    &-8 { grid-template-columns: repeat(8, 1fr); 
+        &-4 { grid-template-columns: 8fr 4fr; } 
+    } 
+    &-9 { grid-template-columns: repeat(9, 1fr); } 
+    &-10 { grid-template-columns: repeat(10, 1fr); } 
+    &-11 { grid-template-columns: repeat(11, 1fr); } 
+    &-12 { grid-template-columns: repeat(12, 1fr); }
+}
+
 .grid{
-    @mixin grid-columns{
-        &-1 { grid-template-columns: repeat(1, 1fr); } 
-        &-2 { grid-template-columns: repeat(2, 1fr); 
-            &-7-3 { grid-template-columns: 2fr 7fr 3fr; }
-            &-10 { grid-template-columns: 2fr 10fr; }
-        } 
-        &-3 { grid-template-columns: repeat(3, 1fr); 
-            &-6-3 { grid-template-columns: 3fr 6fr 3fr; }
-            &-9 { grid-template-columns: 3fr 9fr; }
-        } 
-        &-4 { grid-template-columns: repeat(4, 1fr);
-            &-8 { grid-template-columns: 4fr 8fr; }
-        } 
-        &-5 { grid-template-columns: repeat(5, 1fr); 
-            &-7 { grid-template-columns: 5fr 7fr; }
-        } 
-        &-6 { grid-template-columns: repeat(6, 1fr); } 
-        &-7 { grid-template-columns: repeat(7, 1fr); 
-            &-5 { grid-template-columns: 7fr 5fr;} 
-        } 
-        &-8 { grid-template-columns: repeat(8, 1fr); 
-            &-4 { grid-template-columns: 8fr 4fr; } 
-        } 
-        &-9 { grid-template-columns: repeat(9, 1fr); } 
-        &-10 { grid-template-columns: repeat(10, 1fr); } 
-        &-11 { grid-template-columns: repeat(11, 1fr); } 
-        &-12 { grid-template-columns: repeat(12, 1fr); }
-    }
     @media (min-width: var.$xsm) { @include grid-columns() }
     @media (min-width: var.$sm) { &-sm { @include grid-columns() }}
     @media (min-width: var.$md) { &-md { @include grid-columns() }}

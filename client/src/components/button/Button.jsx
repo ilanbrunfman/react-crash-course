@@ -6,7 +6,7 @@ const Button = ({
     children,
     variant = 'primary',
     size = 'md',            // sm | md | lg
-    fullWidth = false,      // form button
+    // fullWidth = false,      // form button
     type = 'button',        // button | submit
     loading = false,
     disabled = false,
@@ -15,6 +15,8 @@ const Button = ({
     className = '',
 }) => {
 
+    const classes = ` btn btn-${variant} btn-${size} ${loading ? 'btn-loading' : ''} ${className}`.trim()
+
     const renderIcon = () => {
         if (!icon || !icon.name) return null;
         return (
@@ -22,7 +24,7 @@ const Button = ({
                 name={icon.name}
                 size={icon.size || 18}
                 color={icon.color || 'currentColor'}
-                className={`btn-icon ${icon.position || 'left'}`}
+                className={`icon ${icon.position || 'left'}`}
             />
         );
     };
@@ -30,9 +32,9 @@ const Button = ({
     return (
         <button
             type={type}
+            className={classes}
             onClick={onClick}
             disabled={disabled || loading}
-            className={`btn btn-${variant} btn-${size} ${fullWidth ? 'btn--full' : ''} ${className}`}
         >
             {loading && <span className="btn-spinner" />}
 
