@@ -1,5 +1,5 @@
 import { createBrowserRouter } from 'react-router-dom'
-import { requireAuth } from '@/services/auth'
+import { requireAdmin } from '@/auth/requireAuth'
 
 import MainLayout from './layouts/MainLayout'
 import HomePage from './pages/home/HomePage'
@@ -15,6 +15,7 @@ const router = createBrowserRouter([
     {
         path: '/',
         element: <MainLayout />,
+        loader: requireAdmin,
         children: [
             {
                 index: true,
@@ -38,16 +39,16 @@ const router = createBrowserRouter([
             {
                 path: 'resume',
                 element: <ResumePage />,
-                loader: requireAuth,
+                loader: requireAdmin,
             },
         ],
     },
     {
-        path: 'auto/signup',
+        path: 'signup',
         element: <Signup />,
     },
     {
-        path: 'auto/login',
+        path: 'login',
         element: <LoginPage />,
     },
     {

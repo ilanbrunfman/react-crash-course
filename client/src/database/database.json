@@ -23,6 +23,14 @@
       "email": "gilad2.brunfman@gmail.com",
       "password": "something#lse12",
       "type": "customer"
+    },
+    {
+      "id": "17fa",
+      "firstName": "vera",
+      "lastName": "bman",
+      "email": "verabman@gmail.com",
+      "password": "1234",
+      "type": "guest"
     }
   ]
 }

@@ -30,6 +30,7 @@ export const useUsers = () => {
     const addUser = async (user) => {
         const created = await createUser(user);
         setUsers(prev => [...prev, created]);
+        return created
     };
     
     const removeUser = async (id) => {
