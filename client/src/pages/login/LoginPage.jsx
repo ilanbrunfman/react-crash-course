@@ -3,6 +3,7 @@ import { useNavigate, useLocation, NavLink } from 'react-router-dom'
 import { useState, useEffect } from 'react'
 import { usePageMeta } from "@/hooks/usePageMeta"
 import { useAuth } from '@/auth/AuthContext'
+import { useToast } from '@/context/toast/ToastContext'
 
 import Button from '@/components/button/Button'
 import usersData from '@/database/database.json'
@@ -12,6 +13,7 @@ const LoginPage = () => {
     const navigate = useNavigate()
     const location = useLocation()
     const { login } = useAuth()
+    const { addToast } = useToast();
 
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
@@ -27,7 +29,7 @@ const LoginPage = () => {
         if (!error) return
 
         const timer = setTimeout(() => {
-        setError('')
+            setError('')
         }, 3000)
 
         return () => clearTimeout(timer)
@@ -44,6 +46,7 @@ const LoginPage = () => {
 
         if (!user) {
             setError('Invalid email or password')
+            addToast({ message: 'Invalid email or password', type: 'error', duration: 2500 })
             return
         }
 
@@ -51,6 +54,7 @@ const LoginPage = () => {
             new URLSearchParams(location.search).get('redirectTo') || '/'
 
         navigate(redirectTo, { replace: true })
+        addToast({ message: 'Loged in successfully!', type: 'success', duration: 2500 })
     }
 
     return (

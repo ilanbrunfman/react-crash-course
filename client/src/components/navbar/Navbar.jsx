@@ -1,3 +1,4 @@
+import { useNavigate } from 'react-router-dom'
 import { useAuth } from '@/auth/AuthContext'
 import { Link, NavLink } from "react-router-dom"
 import './Navbar.scss'
@@ -5,10 +6,17 @@ import './Navbar.scss'
 const Navbar = () => {
     
     const { user, isAuthenticated, logout } = useAuth()
+    const navigate = useNavigate()
+
     const navLink =  ({ isActive }) => isActive ? 'nav-link active' : 'nav-link'
     // const token = localStorage.getItem('token')
     const initials = user ? `${user.firstName[0]}${user.lastName[0]}`.toUpperCase() : ''
     const fullName = user ? `${user.firstName} ${user.lastName}` : ''
+
+    const handleLogout = () => {
+        logout()                   // clear token + context state
+        navigate('/login', { replace: true })  // redirect immediately
+    }
 
     return (
         <nav className="navbar">
@@ -22,18 +30,14 @@ const Navbar = () => {
                         <NavLink to='/about' className={navLink}>About</NavLink>
                         <NavLink to='/contact' className={navLink}>Contact</NavLink>
                         {/* <NavLink to={ token ? `/resume` : '/auto/login' } className={navLink}>Login</NavLink> */}
-                        {isAuthenticated ? (
+                        {isAuthenticated && (
                             <>
-                                <NavLink to='/resume' className={navLink}>Resume</NavLink>
-
                                 <div className="nav-user">
                                     <div className="nav-avatar">{initials}</div>
-                                    <span className="nav-name">{fullName}</span>
-                                    <button className="logout-btn" onClick={logout}>Logout</button>
+                                    {/* <span className="nav-name">{fullName}</span> */}
+                                    <button className="logout-btn" onClick={handleLogout}>Logout</button>
                                 </div>
                             </>
-                        ) : (
-                            <NavLink to='/login' className={navLink}>Login</NavLink>
                         )}
                     </div>
                 </div>
