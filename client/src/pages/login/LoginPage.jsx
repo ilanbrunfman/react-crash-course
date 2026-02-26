@@ -35,10 +35,6 @@ const LoginPage = () => {
         return () => clearTimeout(timer)
     }, [error])
 
-    const handleBack = () => {
-        navigate(-1)
-    }
-
     const handleLogin = (e) => {
         e.preventDefault()
 
@@ -59,18 +55,7 @@ const LoginPage = () => {
 
     return (
         <div className="login">
-            <div className="login-header">
-                <div className="row">
-                    <div className="col-12 pt-1 pl-1">
-                        <Button
-                        variant="icon"
-                        size="small"
-                        icon={{ name: 'IconArrowLeft', position: 'center', size: 16 }}
-                        onClick={handleBack}
-                        />
-                    </div>
-                </div>
-            </div>
+            <div className="login-header"></div>
 
             <div className="login-body">
                 <div className="container">
@@ -137,6 +122,8 @@ const LoginPage = () => {
                     </motion.div>
                 </div>
             </div>
+
+            <div className="login-footer"></div>
         </div>
     )
 }

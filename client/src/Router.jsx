@@ -1,5 +1,6 @@
 import { createBrowserRouter } from 'react-router-dom'
-import { requireAdmin } from '@/auth/requireAuth'
+// import { requireAdmin } from '@/auth/requireAuth'
+import { requireAuth, requireAdmin } from '@/auth/guards'
 
 import MainLayout from './layouts/MainLayout'
 import HomePage from './pages/home/HomePage'
@@ -15,11 +16,12 @@ const router = createBrowserRouter([
     {
         path: '/',
         element: <MainLayout />,
-        loader: requireAdmin,
+        loader: requireAuth,
         children: [
             {
                 index: true,
                 element: <HomePage />,
+                loader: requireAdmin,
             },
             {
                 path: 'about',

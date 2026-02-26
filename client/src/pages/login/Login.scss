@@ -32,7 +32,7 @@
         &-label {
             font-size: 14px;
             font-weight: 600;
-            color: #444;
+            color: var(--color-text);
         }
 
         &-input{
@@ -43,9 +43,9 @@
             width: 100%;
             padding: 10px 12px;
             font-size: 14px;
-            border: 1px solid #dcdcdc;
+            border: 1px solid var(--color-sub-bg);
             border-radius: 4px;
-            background-color: #fff;
+            background-color: var(--color-sub-bg);
             cursor: pointer;
             transition: all 0.2s ease;
         }

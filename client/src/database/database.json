@@ -13,7 +13,7 @@
       "firstName": "Chen",
       "lastName": "Brunfman",
       "email": "chen.brunfman@yahoo.com",
-      "password": "askldnflka1234",
+      "password": "abcd",
       "type": "customer"
     },
     {
@@ -30,7 +30,7 @@
       "lastName": "bman",
       "email": "verabman@gmail.com",
       "password": "1234",
-      "type": "guest"
+      "type": "customer"
     }
   ]
 }
