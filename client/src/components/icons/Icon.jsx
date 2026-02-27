@@ -2,6 +2,8 @@ import IconArrowLeft from './IconArrowLeft'
 import IconHome from './IconHome'
 import IconMinus from './IconMinus'
 import IconPlus from './IconPlus'
+import IconSignIn from './IconSignIn'
+import IconSignOut from './IconSignOut'
 import IconTrash from './IconTrash'
 import IconUser from './IconUser'
 import IconX from './IconX'
@@ -12,6 +14,8 @@ const icons = {
     IconHome: IconHome,
     IconMinus: IconMinus,
     IconPlus: IconPlus,
+    IconSignIn: IconSignIn,
+    IconSignOut: IconSignOut,
     IconTrash: IconTrash,
     IconUser: IconUser,
     IconX: IconX,

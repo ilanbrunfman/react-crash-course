@@ -20,9 +20,9 @@
     background: var(--btn-bg);
     color: var(--btn-text);
 
-    &:hover:not(:disabled) {
-        background: var(--btn-bg-hover);
-    }
+    // &:hover:not(:disabled) {
+    //     background: var(--btn-bg-hover);
+    // }
 
     &:disabled {
         opacity: 0.6;
@@ -76,6 +76,14 @@
         --btn-bg: #f3f4f6;
         --btn-bg-hover: #e5e7eb;
         --btn-text: #111827;
+    }
+
+    &-empty{
+        background-color: transparent;
+        padding: 0;
+        &:hover{
+            background-color: transparent;
+        }
     }
 
     /* Icon */

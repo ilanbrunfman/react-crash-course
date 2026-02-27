@@ -1,6 +1,7 @@
 import { useNavigate, Link, NavLink } from 'react-router-dom'
 import { useAuth } from '@/auth/AuthContext'
 import { useState, useRef, useEffect } from 'react'
+import Button from '@/components/button/Button';
 import './Navbar.scss'
 
 const Navbar = () => {
@@ -19,7 +20,9 @@ const Navbar = () => {
     const initials = user 
         ? `${user.firstName[0]}${user.lastName[0]}`.toUpperCase() 
         : ''
-
+    const fullName = user 
+        ? `${user.firstName} ${user.lastName}`
+        : ''
 
     const handleLogout = () => {
         logout()                   // clear token + context state
@@ -53,8 +56,6 @@ const Navbar = () => {
                         {isAdmin && <NavLink to='/' className={navLink}>Home</NavLink> }
                         { isAuthenticated && <NavLink to='/about' className={navLink}>About</NavLink> }
                         <NavLink to='/contact' className={navLink}>Contact</NavLink>
-                        {/* <NavLink to={ token ? `/resume` : '/auto/login' } className={navLink}>Login</NavLink> */}
-                        
                     </div>
                     {isAuthenticated && (
                         <div className="nav-user" ref={dropdownRef} >
@@ -64,13 +65,31 @@ const Navbar = () => {
 
                             {open && (
                                 <div className="nav-dropdown">
-                                    <NavLink to="/profile" className="dropdown-item" onClick={() => setOpen(false)} >
-                                        Profile
-                                    </NavLink>
+                                    <div className="dropdown-section">
+                                        <div className="dropdown-row">
+                                            <div className="nav-avatar">{initials}</div>
+                                            <div className="">
+                                                <h4 className='item-title'>{fullName}</h4>
+                                                <NavLink to="/profile" className="item-link" onClick={() => setOpen(false)}>View Profile</NavLink>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div className="dropdown-section">
+                                        <div className="dropdown-row">
+                                            {/* <button className="item-button" onClick={handleLogout}>
+                                                Logout
+                                            </button> */}
+                                            <Button
+                                                variant="empty"
+                                                icon={{ name: 'IconSignOut', position: 'left',  size: 24, }}
+                                                className="item-button"
+                                                onClick={handleLogout}
+                                            >
+                                                Logout
+                                            </Button>
+                                        </div>
+                                    </div>
 
-                                    <button className="dropdown-item" onClick={handleLogout}>
-                                        Logout
-                                    </button>
                                 </div>
                             )}
                         </div>
