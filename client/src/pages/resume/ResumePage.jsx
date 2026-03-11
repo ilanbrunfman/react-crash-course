@@ -1,4 +1,5 @@
 import { usePageMeta } from "@/hooks/usePageMeta";
+import RenderElement from "@/components/element/RenderElement";
 
 const ResumePage = () => {
 
@@ -7,6 +8,29 @@ const ResumePage = () => {
         subtitle: "Information",
         icon: "/icons/ib.svg",
     })
+
+    const msg = () => {
+        console.log('Massage!!')
+    }
+
+    const layout = [
+        {
+            tag: "div",
+            class: "col",
+            children: [
+                { tag: "h2", html: "good job" },
+                { tag: "button", on: { click: msg }, class: "btn", html: "click me" },
+                {
+                    tag: "ul",
+                    children: [
+                        { tag: "li", html: "Item 1" },
+                        { tag: "li", html: "Item 2" }
+                    ]
+                },
+                { tag: "a", attrs: { href: "https://www.youtube.com/", target: "_blank" }, html: "View link"}
+            ]
+        }
+    ]
 
     return (
         <div className="resume">
@@ -33,6 +57,7 @@ const ResumePage = () => {
                             <div className="row">
                                 <div className="col-12">
                                     <h2>Professional Summary</h2>
+                                    {layout.map((el, index) => ( <RenderElement key={index} node={el} /> ))}
                                 </div>
                             </div>
                         </section>

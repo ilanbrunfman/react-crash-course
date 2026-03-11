@@ -31,4 +31,28 @@ export const authService = {
     isAuthenticated() {
         return !!localStorage.getItem(TOKEN_KEY)
     },
+
+    isGuest() {
+        return !this.isAuthenticated()
+    },
+
+    isAdmin() {
+        const user = this.getUser()
+        return user?.type === 'admin'
+    },
+
+    isCustomer() {
+        const user = this.getUser()
+        return user?.type === 'customer'
+    },
+
+    hasRole(role) {
+        const user = this.getUser()
+        return user?.type === role
+    },
+
+    hasAnyRole(roles = []) {
+        const user = this.getUser()
+        return roles.includes(user?.type)
+    }
 }

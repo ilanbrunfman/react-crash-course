@@ -1,18 +1,25 @@
+import { useState, useRef, useEffect } from 'react'
 import { useNavigate, Link, NavLink } from 'react-router-dom'
 import { useAuth } from '@/auth/AuthContext'
-import { useState, useRef, useEffect } from 'react'
 import Button from '@/components/button/Button';
 import './Navbar.scss'
 
 const Navbar = () => {
     
-    const { user, isAuthenticated, logout } = useAuth()
+    const { 
+        user, 
+        logout, 
+        isAuthenticated, 
+        isCustomer,
+        isAdmin,
+        isGuest,
+    } = useAuth()
     const navigate = useNavigate()
 
     const [open, setOpen] = useState(false)
     const dropdownRef = useRef(null)
 
-    const isAdmin = user?.type === 'admin'
+    // const isAdmin = user?.type === 'admin'
 
     const navLink =  ({ isActive }) => 
         isActive ? 'nav-link active' : 'nav-link'
@@ -55,7 +62,7 @@ const Navbar = () => {
                     <div className="navbar-nav">
                         {isAdmin && <NavLink to='/' className={navLink}>Home</NavLink> }
                         { isAuthenticated && <NavLink to='/about' className={navLink}>About</NavLink> }
-                        <NavLink to='/contact' className={navLink}>Contact</NavLink>
+                        {/* <NavLink to='/contact' className={navLink}>Contact</NavLink> */}
                     </div>
                     {isAuthenticated && (
                         <div className="nav-user" ref={dropdownRef} >
@@ -69,16 +76,13 @@ const Navbar = () => {
                                         <div className="dropdown-row">
                                             <div className="nav-avatar">{initials}</div>
                                             <div className="">
-                                                <h4 className='item-title'>{fullName}</h4>
-                                                <NavLink to="/profile" className="item-link" onClick={() => setOpen(false)}>View Profile</NavLink>
+                                                <h4 className={`item-title ${user.type !== 'guest' ? 'mb-0-5' : ''}`}>{fullName}</h4>
+                                                { user.type !== 'guest' && <NavLink to="/profile" className="item-link" onClick={() => setOpen(false)}>View Profile</NavLink> }
                                             </div>
                                         </div>
                                     </div>
                                     <div className="dropdown-section">
                                         <div className="dropdown-row">
-                                            {/* <button className="item-button" onClick={handleLogout}>
-                                                Logout
-                                            </button> */}
                                             <Button
                                                 variant="empty"
                                                 icon={{ name: 'IconSignOut', position: 'left',  size: 24, }}

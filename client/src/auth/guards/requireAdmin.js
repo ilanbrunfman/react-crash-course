@@ -15,7 +15,7 @@ export const requireAdmin = async ({ request }) => {
     }
 
     if (user.type !== 'admin') {
-        throw redirect('/contact') // '/not-authorized'
+        throw redirect('/about') // '/not-authorized'
     }
 
     return null

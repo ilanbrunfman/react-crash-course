@@ -19,6 +19,9 @@ export const AuthProvider = ({ children }) => {
     }
 
     const isAuthenticated = !!user
+    const isGuest = !user
+    const isAdmin = user?.type === 'admin'
+    const isCustomer = user?.type === 'customer'
 
     return (
         <AuthContext.Provider
@@ -27,6 +30,9 @@ export const AuthProvider = ({ children }) => {
                 login,
                 logout,
                 isAuthenticated,
+                isAdmin,
+                isCustomer,
+                isGuest,
             }}
         >
             {children}

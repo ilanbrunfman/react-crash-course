@@ -43,7 +43,7 @@ const HomePage = () => {
                     </div>
 
                     <div className="row">
-                        <div className="col-12 mb-1">
+                        <div className="col-12 mb-2">
                             <UserSearch search={search} onSearch={setSearch} />
                         </div>
                     </div>

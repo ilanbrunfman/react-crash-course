@@ -6,7 +6,7 @@ const UserSearch = ({ search, onSearch }) => {
 
     return (
         <div className="user-search-wrapper">
-            <h4 className="mb-0-5">User search:</h4>
+            <h4 className="mb-1">User search:</h4>
             <div className="search-input-wrapper">
                 <input
                     type="text"

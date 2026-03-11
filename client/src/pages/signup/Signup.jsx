@@ -77,10 +77,10 @@ const SignupPage = () => {
                 <div className="row">
                     <div className="col-12 pt-1 pl-1">
                         <Button
-                        variant="icon"
-                        size="small"
-                        icon={{ name: 'IconArrowLeft', position: 'center', size: 16 }}
-                        onClick={handleBack}
+                            variant="icon"
+                            size="small"
+                            icon={{ name: 'IconArrowLeft', position: 'center', size: 16 }}
+                            onClick={handleBack}
                         />
                     </div>
                 </div>
@@ -97,95 +97,90 @@ const SignupPage = () => {
                 >
 
                     <div className="wrapper-container mb-1">
-                    <div className="row">
-                        <div className="col-12 pt-2 px-2">
-                        <h2 className="fw-bold text-left mb-2">Create Account</h2>
+                        <div className="row">
+                            <div className="col-12 pt-2 px-2">
+                                <h2 className="fw-bold text-left mb-2">Create Account</h2>
+                            </div>
+                        </div>
+
+                        <div className="row">
+                            <div className="col-12 px-2 pb-2">
+
+                                <form onSubmit={handleSignup} className="login-form">
+
+                                    <div className="login-form-group mb-1">
+                                        <label>First Name</label>
+                                        <input
+                                            name="firstName"
+                                            value={form.firstName}
+                                            onChange={handleChange}
+                                            className="login-form-input"
+                                        />
+                                    </div>
+
+                                    <div className="login-form-group mb-1">
+                                        <label>Last Name</label>
+                                        <input
+                                            name="lastName"
+                                            value={form.lastName}
+                                            onChange={handleChange}
+                                            className="login-form-input"
+                                        />
+                                    </div>
+
+                                    <div className="login-form-group mb-1">
+                                        <label>Email</label>
+                                        <input
+                                            type="email"
+                                            name="email"
+                                            value={form.email}
+                                            onChange={handleChange}
+                                            className="login-form-input"
+                                        />
+                                    </div>
+
+                                    <div className="login-form-group mb-1">
+                                        <label>Password</label>
+                                        <input
+                                            type="password"
+                                            name="password"
+                                            value={form.password}
+                                            onChange={handleChange}
+                                            className="login-form-input mb-0-5"
+                                        />
+                                        {(localError || usersError) && (
+                                            <p className="login-form-error">
+                                            {localError || usersError}
+                                            </p>
+                                        )}
+                                    </div>
+
+                                    <div className="login-form-group">
+                                        <Button
+                                            type="submit"
+                                            variant="primary"
+                                            size="lg"
+                                            disabled={loading || usersLoading}
+                                            className="login-form-submit-button"
+                                        >
+                                            {loading ? 'Creating...' : 'Sign Up'}
+                                        </Button>
+                                    </div>
+
+                                </form>
+
+                            </div>
                         </div>
                     </div>
 
                     <div className="row">
-                        <div className="col-12 px-2 pb-2">
-
-                        <form onSubmit={handleSignup} className="login-form">
-
-                            <div className="login-form-group mb-1">
-                            <label>First Name</label>
-                            <input
-                                name="firstName"
-                                value={form.firstName}
-                                onChange={handleChange}
-                                className="login-form-input"
-                            />
-                            </div>
-
-                            <div className="login-form-group mb-1">
-                            <label>Last Name</label>
-                            <input
-                                name="lastName"
-                                value={form.lastName}
-                                onChange={handleChange}
-                                className="login-form-input"
-                            />
-                            </div>
-
-                            <div className="login-form-group mb-1">
-                            <label>Email</label>
-                            <input
-                                type="email"
-                                name="email"
-                                value={form.email}
-                                onChange={handleChange}
-                                className="login-form-input"
-                            />
-                            </div>
-
-                            <div className="login-form-group mb-1">
-                            <label>Password</label>
-                            <input
-                                type="password"
-                                name="password"
-                                value={form.password}
-                                onChange={handleChange}
-                                className="login-form-input mb-0-5"
-                            />
-                            {(localError || usersError) && (
-                                <p className="login-form-error">
-                                {localError || usersError}
-                                </p>
-                            )}
-                            </div>
-
-                            <div className="login-form-group">
-                            <Button
-                                type="submit"
-                                variant="primary"
-                                size="lg"
-                                disabled={loading || usersLoading}
-                                className="login-form-submit-button"
-                            >
-                                {loading ? 'Creating...' : 'Sign Up'}
-                            </Button>
-                            </div>
-
-                        </form>
-
+                        <div className="col-12">
+                            <p className="text-center">
+                                Already have an account?{" "}
+                                <span className="login-nav-link text-underline" onClick={() => navigate('/login')} style={{ cursor: 'pointer' }}
+                                >Log in</span>
+                            </p>
                         </div>
-                    </div>
-                    </div>
-
-                    <div className="row">
-                    <div className="col-12">
-                        <p className="text-center">
-                        Already have an account?{" "}
-                        <span
-                            className="login-nav-link text-underline"
-                            onClick={() => navigate('/login')}
-                            style={{ cursor: 'pointer' }}
-                        >
-                            Log in
-                        </span>
-                        </p>
-                    </div>
                     </div>
 
                 </motion.div>
