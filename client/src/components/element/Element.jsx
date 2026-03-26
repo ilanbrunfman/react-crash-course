@@ -1,6 +1,6 @@
 import React from "react"
 
-const RenderElement = ({ node }) => {
+const Element = ({ node }) => {
 
     if (!node) return null
 
@@ -22,12 +22,25 @@ const RenderElement = ({ node }) => {
         ...rest
     }
 
+    // Resolve Vite assets if src starts with "@/..."
+    if (tag === "img" && props.src?.startsWith("@/")) {
+        const path = props.src.replace("@/", "/src/")
+        props.src = new URL(path, import.meta.url).href
+    }
+
     // convert events (click → onClick)
     Object.keys(on).forEach((event) => {
         const reactEvent =
             "on" + event.charAt(0).toUpperCase() + event.slice(1)
         props[reactEvent] = on[event]
     })
+
+    // VOID ELEMENTS (must not receive children)
+    const voidTags = ["img", "input", "br", "hr", "meta", "link"]
+
+    if (voidTags.includes(tag)) {
+        return React.createElement(tag, props)
+    }
 
     const childNodes = []
 
@@ -44,7 +57,7 @@ const RenderElement = ({ node }) => {
     if (children?.length) {
         children.forEach((child, index) => {
             childNodes.push(
-                <RenderElement key={index} node={child} />
+                <Element key={index} node={child} />
             )
         })
     }
@@ -52,4 +65,4 @@ const RenderElement = ({ node }) => {
     return React.createElement(tag, props, childNodes)
 }
 
-export default RenderElement
+export default Element
