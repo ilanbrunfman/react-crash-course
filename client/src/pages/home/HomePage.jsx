@@ -9,6 +9,7 @@ import UserSearch from './userSearch/UserSeach';
 import UsersTable from './usersTable//UsersTable';
 import AddUserModal from './modals/AddUserModal';
 import Button from '@/components/button/Button';
+import RouterLink from '@/components/navigation/RouterLink/RouterLink';
 
 const HomePage = () => {
     const { users, loading, error, addUser, editUser, removeUser } = useUsers();
@@ -27,7 +28,21 @@ const HomePage = () => {
 
     return (
         <div className="home">
+
             <section>
+                <div className="container">
+                    <div className="row">
+                        <div className="col-12 pt-2 mb-2">
+                            <h1 className='mb-2'>Projects</h1>
+                            <RouterLink to='/isa' className='item-button'>ISA</RouterLink>
+                            <RouterLink to='/contact' className='item-button'>Contact</RouterLink>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+
+            <section className='d-none'>
                 <div className="container">
                     <div className="row">
                         <div className="col-12 d-flex align-items-center justify-between pt-2 mb-2">

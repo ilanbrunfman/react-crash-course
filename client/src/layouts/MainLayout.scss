@@ -1,0 +1,18 @@
+.dashboard{
+    display: grid;
+    height: 100vh;
+
+    grid-template-rows: 64px 1fr;
+    grid-template-columns: 260px 1fr;
+
+    grid-template-areas:
+        "aside header"
+        "aside main";
+
+    padding-top: 64px;
+    transition: grid-template-columns 0.3s ease;
+
+    &.closed {
+        grid-template-columns: 70px 1fr;
+    }
+}
