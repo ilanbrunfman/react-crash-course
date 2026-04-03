@@ -8,7 +8,7 @@
 
   color-scheme: light dark;
   color: rgba(255, 255, 255, 0.87);
-  background-color: var(--background); // #242424;
+//   background-color: var(--background); // #242424;
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -19,7 +19,7 @@
 @media (prefers-color-scheme: light) {
     :root {
         color: #213547;
-        background-color: var(--background);
+        background-color: var(--color-surface);
     }
     // a:hover {
     //     color: #747bff;
@@ -47,7 +47,7 @@ body {
     // color: var(--color-text); // var(--copy);
     // background: var(--background);
 
-    background: var(--color-bg);
+    background: var(--color-surface);
     color: var(--color-text);
     
     transition:
@@ -82,6 +82,7 @@ button{
     background-color: transparent;
     outline: none;
     border: none;
+    cursor: pointer;
 }
 
 a{ 
@@ -107,14 +108,14 @@ img {
 .container{
     @media (min-width: var.$xsm) { 
         width: min(100%, var.$xxl);
-        padding-inline: 1.5rem; 
+        padding-inline: 2.4rem; 
         margin-inline: auto;
     } 
     @media (min-width: var.$sm) { 
         &-sm {}
     }
     @media (min-width: var.$md) { 
-        padding-inline: 2.0rem;
+        padding-inline: 5.0rem;
         &-md {} 
     }
     @media (min-width: var.$lg) { 
@@ -123,7 +124,15 @@ img {
     }
     @media (min-width: var.$xl) { 
         &-xl {}
-     }
+    }
+
+    &-main{
+        @media (min-width: var.$xsm) { 
+            width: min(100%, var.$md);
+            margin-inline: auto;
+        }
+
+    }
 
     &-fluid {  
         @media (min-width: var.$xsm) { 

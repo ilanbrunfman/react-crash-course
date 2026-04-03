@@ -230,8 +230,8 @@ const ResumePage = () => {
     return (
         <div className="resume">
             <div className="container">
-                <div className="col-12 d-grid grid-md-3-9 gap-2 pt-4 pb-6">
-                    <div className="col sidebar sidebar-sticky">
+                <div className="col-12 mx-auto pb-6 ilan">
+                    <div className="col sidebar sidebar-sticky mb-2">
                         <div className="sidebar-container">
                             {posts.map((btn, index) => (
                                 <button

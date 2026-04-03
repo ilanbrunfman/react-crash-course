@@ -2,29 +2,46 @@
 
 .resume{
     position: relative;
-    background-color: var(--color-surface);
-
+    
     .sidebar{
-        background-color: var(--color-surface);
-        border: solid 1px var(--color-border);
-        border-radius: 14px;
-        max-width: 680px;
         overflow: hidden;
-        --height: 190px; // calc(100vh - 140px);
-       
-        // background-color: pink;
 
-        &-sticky{
-            position: sticky;
-            top: 0px;
-            // height: 300px;
+        &-sticky {
+            position: fixed;
+            z-index: 3;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            transition: all 0.3s ease;         
+
+            @media (min-width: var.$sm) {
+                max-width: 100%;
+            }
+
+            @media (min-width: var.$md) {
+                width: calc(100% - 260px);
+                left: 260px;
+            }
         }
 
         &-container{
-            border: none;
+            position: relative;
+            width: min(92%, var.$md);
+            margin-inline: auto;
+            background: rgba(var(--color-border), 0.6);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+
+            border: solid 1px var(--color-border);
+
+            box-shadow:
+                0 8px 32px rgba(0,0,0,0.08),
+                inset 0 1px 0 rgba(255,255,255,0.6);
+
+            // border: none;
             display: flex;
             flex-direction: row;
-            border-radius: 0;
+            border-radius: 14px;
             // min-width: 900px; // force overflow
             overflow-x: auto;
             overflow-y: hidden;
@@ -32,15 +49,6 @@
             scroll-padding-right: 16px;
             scroll-snap-type: x proximity;
 
-            @media (min-width: var.$md) { 
-                height: var(--height);
-                flex-direction: column;
-                overflow-y: auto;
-                overflow-x: hidden;
-                scroll-padding-top: 10px;
-                scroll-padding-bottom: 10px;
-                scroll-snap-type: y proximity;
-            }
 
             /* Chrome, Safari */
             &::-webkit-scrollbar {
@@ -53,11 +61,6 @@
             /* IE/Edge (legacy) */
             -ms-overflow-style: none;
         }
-
-        @media (min-width: var.$md) { 
-            height: var(--height);
-            top: 20px;
-        }
         
 
         &-btn{
@@ -68,16 +71,18 @@
             color: var(--color-text);
             padding: 12px 18px;
             border: none;
-            background: transparent;
+            background-color: none;
+            // background: red !important;
             text-align: left;
             cursor: pointer;
             white-space: nowrap;
             transition: color .2s;
             scroll-snap-align: center;
+            // height: 62px;
 
             &.active{
                 color: #2563eb;
-                background: var(--color-sub-bg);
+                // background: var(--color-sub-bg);
             }
 
             &:active{
@@ -92,14 +97,20 @@
 
     }
 
-    section{ scroll-margin-top: 20px; }
+    section{ scroll-margin-top: 74px; }
+
+    .feeds{
+        max-width: var.$md;
+        margin-inline: auto;
+        // padding-bottom: calc(60% + 128px);
+    }
     .post{
         background-color: var(--color-surface);
         border: solid 1px var(--color-border);
         margin-bottom: 2.0rem;
         border-radius: 14px;
         padding-top: 20px;
-        max-width: 680px;
+        max-width: var.$md;
 
         &-header{
             padding: 0px 20px;
@@ -206,11 +217,15 @@
 
                 &-container{
                     display: grid;
-                    grid-template-columns: 64px 1fr;
+                    grid-template-columns: 1fr;
                     gap: 1.0rem;
                     transition: all 0.25s ease;
                     border: none;
                     border-radius: 0;
+
+                    @media (min-width: var.$md) { 
+                        grid-template-columns: 64px 1fr;
+                    }
 
                     &:hover{
                         // background-color: var(--background);
@@ -222,9 +237,13 @@
                 }
                 &-body{
                     border-top: none;
-                    padding: var(--space-1);
+                    padding: var(--space-0);
                     padding-top: 0.5rem;
                     background-color: transparent;
+
+                    @media (min-width: var.$md) { 
+                        padding-inline: var(--space-1);
+                    }
 
                     h4{
                         margin-bottom: 0;
@@ -245,5 +264,13 @@
                 }
             }
         }
+    }
+}
+
+.dashboard.closed .sidebar.sidebar-sticky{
+
+    @media (min-width: var.$md) {
+        width: calc(100% - 70px);
+        left: 70px;
     }
 }

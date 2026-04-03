@@ -1,30 +1,86 @@
-
-import { useState } from 'react';
-import { useUsers } from '@/hooks/useUsers';
 import { usePageMeta } from "@/hooks/usePageMeta";
-import { useModal } from '@/context/modal/ModalContext';
-import { useUserFilter, useUserSort } from '@/hooks/useUserFilter';
-
-import UserSearch from './userSearch/UserSeach';
-import UsersTable from './usersTable//UsersTable';
-import AddUserModal from './modals/AddUserModal';
-import Button from '@/components/button/Button';
 import RouterLink from '@/components/navigation/RouterLink/RouterLink';
+import Image from "@/components/image/Image"
+import Icon from '@/components/icons/Icon';
+
+import './HomePage.scss'
 
 const HomePage = () => {
-    const { users, loading, error, addUser, editUser, removeUser } = useUsers();
+
     usePageMeta({
         title: "Good Day",
         icon: "/icons/vite.svg",
     })
-    const { openModal } = useModal();
 
-    const [search, setSearch] = useState('');
-    const filteredUsers = useUserFilter(users, search);
-    const sortedUsers = useUserSort(filteredUsers);
+    const items = [
+        {
+            id: 'isa',
+            path: '/isa',
+            title: 'Closed Loop Marketing (CLM)',
+            sub: 'Veeva CRM',
+            thumbnail:{
+                file: "eit.jpeg",
+                alt: "User photo",
+                // ratio: "4/3",
+            },
+        },
+        {
+            id: 'crud',
+            path: '/crud',
+            title: 'CRUD',
+            sub: 'REST APIs',
+            thumbnail:{
+                file: "ib.svg",
+                alt: "User photo",
+                // ratio: "4/3",
+            },
+        },
+        {
+            id: 'crud',
+            path: '/crud',
+            title: 'Password Generator',
+            sub: 'REST APIs',
+            thumbnail:{
+                file: "ib.svg",
+                alt: "User photo",
+                // ratio: "4/3",
+            },
+        },
+        {
+            id: 'crud',
+            path: '/crud',
+            title: 'QRcode Generator',
+            sub: 'REST APIs',
+            thumbnail:{
+                file: "ib.svg",
+                alt: "User photo",
+                // ratio: "4/3",
+            },
+        },
+        {
+            id: 'jatenzo',
+            path: 'https://renewlifekc.com/',
+            title: 'Jatenzo.com',
+            sub: '.Net Framework',
+            thumbnail:{
+                file: "renewlife.png",
+                alt: "User photo",
+                // ratio: "4/3",
+            },
+        },
+        {
+            id: 'jatenzo',
+            path: 'https://jatenzo.com/',
+            title: 'Jatenzo.com',
+            sub: '.Net Framework',
+            thumbnail:{
+                file: "jatenzo.png",
+                alt: "User photo",
+                // ratio: "4/3",
+            },
+        },
+    ]
 
-    if (loading) return <p>Loading...</p>;
-    if (error) return <p>Error: {error}</p>;
 
     return (
         <div className="home">
@@ -32,56 +88,69 @@ const HomePage = () => {
             <section>
                 <div className="container">
                     <div className="row">
-                        <div className="col-12 pt-2 mb-2">
-                            <h1 className='mb-2'>Projects</h1>
-                            <RouterLink to='/isa' className='item-button'>ISA</RouterLink>
-                            <RouterLink to='/contact' className='item-button'>Contact</RouterLink>
+                        <div className="col-12 pt-2 mb-4">
+                            <div className="container-main d-flex align-items-center justify-between">
+                                <h1 className='mb-2'>Projects</h1>
+                                 <h2 className="">Search bar</h2>
+                            </div>
                         </div>
                     </div>
-                </div>
-            </section>
 
-
-            <section className='d-none'>
-                <div className="container">
                     <div className="row">
-                        <div className="col-12 d-flex align-items-center justify-between pt-2 mb-2">
-                            <h1 className=''>Users list</h1>
-                            <Button
-                                variant="primary"
-                                icon={{ name: 'IconPlus', position: 'right', size: 16, }}
-                                onClick={() => openModal(AddUserModal, { addUser })}
-                            >
-                                New User
-                            </Button>
+                        <div className="col-12 mb-4">
+                            <div className="container-main">
+                                <h2 className="">Looped banner swiper of 3 random projects</h2>
+                            </div>
                         </div>
                     </div>
-
                     <div className="row">
                         <div className="col-12 mb-2">
-                            <UserSearch search={search} onSearch={setSearch} />
+                            <div className="container-main">
+                                <h2 className="">Filter</h2>
+                            </div>
                         </div>
                     </div>
 
                     <div className="row">
-                        <div className="col-12">
-                            {sortedUsers.length > 0 ? (
-                                <UsersTable
-                                    users={sortedUsers}
-                                    loading={loading}
-                                    error={error}
-                                    editUser={editUser}
-                                    removeUser={removeUser}
-                                />
-                            ) : (
-                                <div className="no-users">
-                                    <p>No users found..</p>
+                        <div className="col-12 d-flex mx-auto mb-6">
+                            <div className="container-main ">
+                                <div className="items d-grid grid-1 grid-md-2 gap-1 mb-2">
+                                    { items.map((item, index) =>  (
+                                        <RouterLink 
+                                            key={index}
+                                            to={item.path} 
+                                            className="item"
+                                        >
+                                            <div className="item-header">
+                                                <Image 
+                                                    file={item.thumbnail.file} 
+                                                    alt={item.thumbnail.alt} 
+                                                    ratio={item.thumbnail.ratio} 
+                                                    className={item.thumbnail.className} 
+                                                />
+                                            </div>
+                                            <div className="item-body">
+                                                <h3 className="title">{item.title}</h3>
+                                                <h4 className="sub">{item.sub}</h4>
+                                            </div>
+                                            <div className="item-footer">
+                                                <Icon
+                                                    name={'IconCaretRight'}
+                                                    size="16"
+                                                    // color="red"
+                                                    className="icon"
+                                                />
+                                            </div>
+                                        </RouterLink>
+                                    ))}
                                 </div>
-                            )}
+
+                            </div>
                         </div>
                     </div>
                 </div>
             </section>
+
         </div>
     )
 }

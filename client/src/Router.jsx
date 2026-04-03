@@ -7,13 +7,14 @@ import HomePage from './pages/home/HomePage'
 import AboutPage from './pages/about/AboutPage'
 import AboutDynamic from './pages/about/AboutDynamic'
 import ContactPage from './pages/contact/ContactPage'
+import Crud from './pages/crud/CRUD'
 import ResumePage from './pages/resume/ResumePage'
 import LoginPage from './pages/login/LoginPage'
 import Signup from './pages/signup/Signup'
 import ISAPage from './pages/isa/ISAPage'
 import ISASection from './pages/isa/ISASection'
-import NotFoundPage from './pages/notFound/NotFoundPage'
 import ISADynamic from './pages/isa/ISADynamic'
+import NotFoundPage from './pages/notFound/NotFoundPage'
 
 const router = createBrowserRouter([
     {
@@ -57,6 +58,10 @@ const router = createBrowserRouter([
                 path: 'profile',
                 element: <ResumePage />,
                 loader: requireUser,
+            },
+            {
+                path: 'crud',
+                element: <Crud />,
             },
         ],
     },

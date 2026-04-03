@@ -1,0 +1,121 @@
+@use "@/styles/shared/variables" as var;
+
+.nav-sidebar{
+    position: fixed;
+    z-index: 99;
+    top: 0;
+    left: 0;
+
+    grid-area: sidebar;
+
+    // width: 70px;
+    height: 100vh;
+    overflow: hidden;
+
+    background: var(--color-surface);
+    border-right: 1px solid var(--color-border);
+
+    transform: translateX(0);
+    transition: width .3s ease;
+
+    &.closed {
+        width: 70px;
+        
+    }
+    &.open {
+        width: 260px;
+    }
+
+    @media (max-width: 768px) {
+        
+        &.closed {
+            grid-area: unset; // important
+            transform: translateX(-100%);
+            transition: transform .3s ease;
+        }
+    }
+    
+    &-top{
+        position: relative;
+        height: 64px;
+
+        justify-content: space-between;
+        padding: 0 20px;
+        transition: all 0.3s ease,;
+
+        .hamburger{
+            position: absolute;
+            top: 19px;
+            left: 24px;
+            font-size: 24px;
+            border: none;
+            background: none;
+            cursor: pointer;
+        }
+
+        &.closed{
+            justify-content: center;
+        }
+    }
+
+    &-main{
+        display: flex;
+        flex-direction: column;
+
+        .nav-link{
+            position: relative;
+            display: flex;
+            align-items: center;
+            padding: 18px 20px 36px 20px;
+            // height: 48px;
+            font-size: 14px;
+            white-space: nowrap;
+
+            svg{
+                position: absolute;
+                top: 18px;
+                left: 25px;
+                width: 18px;
+            }
+
+            span{
+                position: absolute;
+                top: 20px;
+                left: 64px;
+                transition: all 0.125s ease;
+            }
+
+            &:hover{
+                background-color: var(--background);
+            }
+
+            &.closed {
+                span{
+                    opacity: 0;
+                }
+            }
+        }
+    }
+
+
+}
+
+.nav-overlay{
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.35);
+    z-index: 10;
+
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity .25s ease;
+
+    &.open {
+        opacity: 0;
+        pointer-events: auto;
+    }
+
+    @media (min-width: 768px) {
+        display: none;
+    }
+}

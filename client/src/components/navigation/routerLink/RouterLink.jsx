@@ -25,16 +25,15 @@ const RouterLink = ({
         );
     };
 
-    if(isExternal){
+    if (isExternal) {
+        const userClass =
+            typeof className === 'function' ? className({}) : className || '';
+
         return (
             <a  
-                className={(navData) => {
-                    const userClass =
-                    typeof className === 'function' ? className(navData) : className || '';
-                    return `router-link ${userClass}`.trim();
-                }}
-                href={ href || to} 
-                target='_blank' 
+                className={`external-link ${userClass}`.trim()}
+                href={href || to} 
+                target="_blank" 
                 rel="noopener noreferrer" 
                 {...props}
             >
@@ -42,7 +41,7 @@ const RouterLink = ({
                 {children}
                 {icon && icon.position == 'right' && renderIcon()}
             </a>
-        )
+        );
     }
     
     return(

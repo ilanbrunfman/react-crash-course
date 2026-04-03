@@ -6,7 +6,7 @@ import TableBody from "@/components/table/TableBody"
 import TableRow from "@/components/table/TableRow"
 import TableCell from "@/components/table/TableCell"
 
-import UpdateUserModal from '@/pages/home/modals/UpdateUserModal'
+import UpdateUserModal from '@/pages/crud/modals/UpdateUserModal'
 
 const UsersTable = ({ users, editUser, removeUser }) => {
 
