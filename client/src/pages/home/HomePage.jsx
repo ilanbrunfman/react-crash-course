@@ -1,8 +1,8 @@
 import { useState, useMemo } from 'react';
 import { Outlet } from 'react-router-dom'
-// import { motion, AnimatePresence } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import { usePageMeta } from "@/hooks/usePageMeta";
-import SearchInput from '@/pages/home/SearchInput';
+import SearchInput from '@/pages/home/SearchInput/SearchInput';
 import Item from '@/pages/home/Item'
 import Image from "@/components/image/Image"
 

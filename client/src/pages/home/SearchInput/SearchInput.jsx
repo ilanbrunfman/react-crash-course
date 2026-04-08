@@ -1,6 +1,8 @@
 import { useState, useEffect } from "react";
 import Icon from '@/components/icons/Icon';
 
+import './SearchInput.scss'
+
 const SearchInput = ({
     value,
     onChange,

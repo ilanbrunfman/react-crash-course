@@ -1,6 +1,6 @@
 @use "@/styles/shared/variables" as var;
 
-.sidebar{
+.ui-sidebar{
 
     &-container{
         position: relative;
@@ -17,6 +17,11 @@
     &-header{}
     &-nav{
         padding: 14px;
+
+        @media (max-width: var.$md) {
+            display: flex;
+            overflow-x: auto;
+        }
 
         .nav{
             &-link{

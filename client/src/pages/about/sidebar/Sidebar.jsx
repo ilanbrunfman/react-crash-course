@@ -9,18 +9,16 @@ const Sidebar = () => {
     const sortedAboutPages = [...aboutPages].sort((a, b) => a.label.localeCompare(b.label))
 
     return(
-        <aside className="sidebar-container">
-            <div className="sidebar-header"></div>
-            <div className="sidebar-nav">
-                <ul>
-                    {sortedAboutPages.map(page => (
-                        <li key={page.slug}>
-                            <NavLink className={navLink} to={`/about/${page.slug}`}>{page.label}</NavLink>
-                        </li>
-                    ))}
-                </ul>
-            </div>
-            <div className="sidebar-footer"></div>
+        <aside className="ui-sidebar-container">
+            <div className="ui-sidebar-header"></div>
+            <ul className="ui-sidebar-nav">
+                {sortedAboutPages.map(page => (
+                    <li key={page.slug}>
+                        <NavLink className={navLink} to={`/about/${page.slug}`}>{page.label}</NavLink>
+                    </li>
+                ))}
+            </ul>
+            <div className="ui-sidebar-footer"></div>
         </aside>
     )
 }

@@ -1,0 +1,41 @@
+@use "@/styles/shared/variables" as var;
+
+.search{
+    position: relative;
+    display: flex;
+    align-items: center;
+    width: min(100%, 240px);
+
+    &-input {
+        width: 100%;
+        padding: 8px 12px;
+        margin-bottom: 12px;
+        border: solid 1px var(--color-border);
+        border-radius: 28px;
+        padding-left: 40px;
+        padding-right: 30px;
+    }
+
+    &-icon {
+        position: absolute;
+        top: 8px;
+        left: 12px;
+        // transform: translateY(-50%);
+        display: flex;
+        align-items: center;
+        pointer-events: none; // 👈 important (click goes to input)
+    }
+
+    &-clear {
+        position: absolute;
+        top: 8px;
+        right: 12px;
+        background: transparent;
+        border: none;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+}
