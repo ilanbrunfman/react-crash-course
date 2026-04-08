@@ -24,7 +24,7 @@ const Aside = ({
         {
             label: 'UI Components',
             to: '/about',
-            icon: { name: 'IconUser', position: 'left', size: 18 },
+            icon: { name: 'IconStack', position: 'left', size: 18 },
             show: isAuthenticated,
         },
     ];

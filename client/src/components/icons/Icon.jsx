@@ -8,6 +8,7 @@ import IconSignIn from './IconSignIn'
 import IconSignOut from './IconSignOut'
 import IconTrash from './IconTrash'
 import IconUser from './IconUser'
+import IconStack from './IconStack'
 import IconX from './IconX'
 
 // Register all your icons here
@@ -22,6 +23,7 @@ const icons = {
     IconSignOut: IconSignOut,
     IconTrash: IconTrash,
     IconUser: IconUser,
+    IconStack: IconStack,
     IconX: IconX,
 };
 

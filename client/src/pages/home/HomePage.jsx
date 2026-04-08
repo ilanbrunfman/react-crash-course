@@ -4,6 +4,7 @@ import { Outlet } from 'react-router-dom'
 import { usePageMeta } from "@/hooks/usePageMeta";
 import SearchInput from '@/pages/home/SearchInput';
 import Item from '@/pages/home/Item'
+import Image from "@/components/image/Image"
 
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Autoplay, Pagination } from 'swiper/modules';
@@ -24,7 +25,7 @@ const ITEMS = [
             {id: 'crm', label: 'CRM' },
             { id: 'frontend', label: 'Frontend' },
         ],
-        thumbnail:{ file: "ib.svg", alt: "User photo", }, // eit.jpeg
+        thumbnail:{ file: "eit.jpeg", alt: "User photo", }, // 
     },
     {
         id: 'crud-api',
@@ -176,7 +177,7 @@ const HomePage = () => {
                         </div>
                     </div>
 
-                    <div className="row d-none">
+                    <div className="row">
                         <div className="col-12 mb-4">
                             <div className="container-main">
                                 <Swiper
@@ -184,20 +185,25 @@ const HomePage = () => {
                                     spaceBetween={16}
                                     // slidesPerView={1}
                                     loop={true}
-                                    autoplay={{
-                                        delay: 7500,
-                                        disableOnInteraction: false,
-                                        pauseOnMouseEnter: true,
-                                    }}
+                                    // autoplay={{
+                                    //     delay: 7500,
+                                    //     disableOnInteraction: false,
+                                    //     pauseOnMouseEnter: true,
+                                    // }}
                                     pagination={{ clickable: true }}
                                     speed={1000}
                                     observer={true}
                                     observeParents={true}
                                 >
                                     {bannerItems.map((item, index) => (
-                                        <SwiperSlide key={index}  className=''>
-                                            <div className="">
+                                        <SwiperSlide key={index}  >
+                                            <div className={`banner banner-${item.id}`}>
                                                 <div className="banner-header">
+                                                    <Image 
+                                                        file={item.thumbnail.file} 
+                                                        alt={item.thumbnail.alt} 
+                                                        className="icon"
+                                                    />
                                                     <h3>{item.title}</h3>
                                                     <p>{item.sub}</p>
                                                 </div>
