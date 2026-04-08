@@ -1,5 +1,6 @@
 import { useState, useMemo } from 'react';
 import { Outlet } from 'react-router-dom'
+// import { motion, AnimatePresence } from "framer-motion";
 import { usePageMeta } from "@/hooks/usePageMeta";
 import SearchInput from '@/pages/home/SearchInput';
 import Item from '@/pages/home/Item'
@@ -19,15 +20,20 @@ const ITEMS = [
         path: '/isa',
         title: 'Closed Loop Marketing (CLM)',
         sub: 'Veeva CRM',
-        category: ['CRM', 'frontend'],
-        thumbnail:{ file: "eit.jpeg", alt: "User photo", },
+        category: [
+            {id: 'crm', label: 'CRM' },
+            { id: 'frontend', label: 'Frontend' },
+        ],
+        thumbnail:{ file: "ib.svg", alt: "User photo", }, // eit.jpeg
     },
     {
         id: 'crud-api',
         path: '/crud',
         title: 'CRUD',
         sub: 'REST APIs',
-        category: ['backend'],
+        category: [
+            { id: 'backend', label: 'Backend' },
+        ],
         thumbnail:{ file: "ib.svg", alt: "User photo", },
     },
     {
@@ -35,7 +41,11 @@ const ITEMS = [
         path: '/password-generator',
         title: 'Password Generator',
         sub: 'REST APIs',
-        category: ['backend', 'frontend', 'Websites'],
+        category: [ 
+            { id: 'backend', label: 'Backend' },
+            { id: 'frontend', label: 'Frontend' },
+            { id: 'website', label: 'Website' },
+        ],
         thumbnail:{ file: "ib.svg", alt: "User photo", },
     },
     {
@@ -43,7 +53,10 @@ const ITEMS = [
         path: 'qrcode',
         title: 'QRcode Generator',
         sub: 'REST APIs',
-        category: ['backend', 'Frontend'],
+        category: [
+            { id: 'backend', label: 'Backend' },
+            { id: 'frontend', label: 'Frontend' },
+        ],
         thumbnail:{ file: "ib.svg", alt: "User photo", },
     },
     {
@@ -51,7 +64,9 @@ const ITEMS = [
         path: 'https://renewlifekc.com/',
         title: 'RenewlifeKC.com',
         sub: 'WordPress',
-        category: ['WordPress', 'frontend'],
+        category: [
+            { id: 'wordPress', label: 'WordPress' },
+        ],
         thumbnail:{ file: "renewlife.png", alt: "User photo", },
     },
     {
@@ -59,7 +74,9 @@ const ITEMS = [
         path: 'https://jatenzo.com/',
         title: 'Jatenzo.com',
         sub: '.Net Framework',
-        category: ['frontend'],
+        category: [
+            { id: 'frontend', label: 'Frontend' },
+        ],
         thumbnail:{ file: "jatenzo.png", alt: "User photo", },
     },
 ]
@@ -73,46 +90,59 @@ const HomePage = () => {
 
     const [activeCategory, setActiveCategory] = useState('all');
     const [search, setSearch] = useState('');
+
+    // 
+    const NORMALIZED_ITEMS = useMemo(() => {
+        return ITEMS.map(item => ({
+            ...item,
+            // category: item.category?.map(c => c.toLowerCase()) || []
+            category: item.category?.length
+                ? item.category
+                : [{ id: 'uncategorized', label: 'Other' }]
+        }));
+    }, []);
     
 
     // Filtered Items
     const filteredItems = useMemo(() => {
-        
-        return ITEMS.filter(item => {
+        const searchValue = search.toLowerCase();
+
+        return NORMALIZED_ITEMS.filter(item => {
             const matchesCategory =
                 activeCategory === 'all' ||
-                item.category?.map(c => c.toLowerCase()).includes(activeCategory);
+                item.category.some(cat => cat.id === activeCategory);
 
             const matchesSearch =
-                item.title.toLowerCase().includes(search.toLowerCase()) ||
-                item.sub.toLowerCase().includes(search.toLowerCase());
+                item.title.toLowerCase().includes(searchValue) ||
+                item.sub.toLowerCase().includes(searchValue);
 
             return matchesCategory && matchesSearch;
         });
-    }, [activeCategory, search]);
+    }, [NORMALIZED_ITEMS, activeCategory, search]);
 
     // Categories
     const categories = useMemo(() => {
         const map = new Map();
 
-        ITEMS.forEach(item => {
-            item.category?.forEach(cat => {
-                const value = cat.toLowerCase();
-
-                // preserve first "nice" version you encounter
-                if (!map.has(value)) {
-                    map.set(value, cat);
+        NORMALIZED_ITEMS.forEach(item => {
+            item.category.forEach(cat => {
+                if (!map.has(cat.id)) {
+                    map.set(cat.id, cat.label);
                 }
             });
         });
 
+        const sorted = Array.from(map.entries())
+            .sort((a, b) => a[0].localeCompare(b[0]));
+
         return [
             { value: 'all', label: 'All' },
-            ...Array.from(map.entries())
-                .sort((a, b) => a[0].localeCompare(b[0]))
-                .map(([value, label]) => ({ value, label }))
+            ...sorted.map(([value, label]) => ({
+                value,
+                label
+            }))
         ];
-    }, []);
+    }, [NORMALIZED_ITEMS]);
 
 
     //
@@ -146,7 +176,7 @@ const HomePage = () => {
                         </div>
                     </div>
 
-                    <div className="row">
+                    <div className="row d-none">
                         <div className="col-12 mb-4">
                             <div className="container-main">
                                 <Swiper

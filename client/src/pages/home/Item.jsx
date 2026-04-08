@@ -1,10 +1,21 @@
+import { motion } from "framer-motion";
 import RouterLink from '@/components/RouterLink/RouterLink';
 import Image from "@/components/image/Image"
 import Icon from '@/components/icons/Icon';
 
+const MotionLink = motion(RouterLink);
+
 const Item = ({item}) => {
     return (
-       <RouterLink to={item.path} className="item">
+        <MotionLink 
+            to={item.path} 
+            className="item"
+            // layout
+            initial={{ alpha: 0, }}
+            animate={{ alpha: 1, }}
+            exit={{ alpha: 0, }}
+            transition={{ duration: 0.15 }}
+        >
             <div className="item-header">
                 <Image 
                     file={item.thumbnail.file} 
@@ -24,7 +35,7 @@ const Item = ({item}) => {
                     className="icon"
                 />
             </div>
-        </RouterLink>
+        </MotionLink>
         
     )
 }
