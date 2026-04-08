@@ -1,8 +1,98 @@
 @use "@/styles/shared/variables" as var;
 
 .home{
-    // max-width: 680px;
-    // margin-inline: auto;
+
+    .filters{
+        .filter{
+            &-btn{
+                text-transform: capitalize;
+                font-size: 14px;
+                border-radius: 28px;
+                padding: 12px 18px;
+                cursor: pointer;
+
+                &.active{
+                    background-color: var(--background);
+                }
+            }
+        }
+    }
+
+    .search{
+        position: relative;
+        display: flex;
+        align-items: center;
+        width: min(100%, 240px);
+
+        &-input {
+            width: 100%;
+            padding: 8px 12px;
+            margin-bottom: 12px;
+            border: solid 1px var(--color-border);
+            border-radius: 28px;
+            padding-left: 40px;
+            padding-right: 30px;
+        }
+
+        &-icon {
+            position: absolute;
+            top: 8px;
+            left: 12px;
+            // transform: translateY(-50%);
+            display: flex;
+            align-items: center;
+            pointer-events: none; // 👈 important (click goes to input)
+        }
+
+        &-clear {
+            position: absolute;
+            top: 8px;
+            right: 12px;
+            background: transparent;
+            border: none;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+    }
+
+    .banner {
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+    }
+
+    .swiper {
+        position: relative;
+        display: block;
+        width: 100% !important;
+        max-width: 100%;
+        overflow: hidden;
+        height: 300px;
+
+
+        &-wrapper {
+            width: 100%;
+            align-items: stretch;
+        }
+
+        &-slide {
+            display: flex;
+            width: 100% !important;
+            height: 100%;
+            position: relative;
+            border-radius: 32px;
+            overflow: hidden;
+            // background-color: var(--background);
+            padding: 20px;
+
+            flex-shrink: 0; // important
+            box-sizing: border-box;
+        }
+
+    }
 
     .items{
         .item{
@@ -27,7 +117,7 @@
                 }
             }
             &-body{
-
+                text-align: left;
                 .title{
                     font-size: 14px;
                     line-height: 1.5;

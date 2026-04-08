@@ -14,6 +14,8 @@ import Signup from './pages/signup/Signup'
 import ISAPage from './pages/isa/ISAPage'
 import ISASection from './pages/isa/ISASection'
 import ISADynamic from './pages/isa/ISADynamic'
+import PasswordGenerator from './pages/passwordGenerator/PasswordGenerator'
+import QRCode from './pages/qrcode/QRCode'
 import NotFoundPage from './pages/notFound/NotFoundPage'
 
 const router = createBrowserRouter([
@@ -37,7 +39,14 @@ const router = createBrowserRouter([
                     },
                 ],
             },
-            
+            {
+                path: 'password-generator',
+                element: <PasswordGenerator />,
+            },
+            {
+                path: 'qrcode',
+                element: <QRCode />,
+            },
             {
                 path: 'isa',
                 element: <ISAPage />,

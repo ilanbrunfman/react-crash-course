@@ -2,6 +2,7 @@ import IconArrowLeft from './IconArrowLeft'
 import IconCaretRight from './IconCaretRight'
 import IconHome from './IconHome'
 import IconMinus from './IconMinus'
+import IconMagnifyingGlass from './IconMagnifyingGlass'
 import IconPlus from './IconPlus'
 import IconSignIn from './IconSignIn'
 import IconSignOut from './IconSignOut'
@@ -15,6 +16,7 @@ const icons = {
     IconCaretRight: IconCaretRight,
     IconHome: IconHome,
     IconMinus: IconMinus,
+    IconMagnifyingGlass: IconMagnifyingGlass,
     IconPlus: IconPlus,
     IconSignIn: IconSignIn,
     IconSignOut: IconSignOut,

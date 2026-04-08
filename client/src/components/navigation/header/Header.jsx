@@ -1,6 +1,6 @@
 import { useAuth } from '@/auth/AuthContext'
 import { useNavigate } from 'react-router-dom'
-import RouterLink from '@/components/navigation/RouterLink/RouterLink';
+import RouterLink from '@/components/RouterLink/RouterLink';
 import UserDropdownMenu from '@/components/navigation/userMenu/UserDropdownMenu';
 
 import './Header.scss'
@@ -20,14 +20,14 @@ const Header = ({
 
     return (
         <header className={`nav-header ${sidebarOpen ? "open" : "closed"}`}>
-            <div className="d-flex align-items-center gap-1">
+            <div className="nav-header-items d-flex align-items-center gap-1">
                 <button className="hamburger" onClick={() => toggleSidebar()}>☰</button>
-                {/* <RouterLink 
-                    to='/'
-                    className='nav-header-logo'
-                    onClick={toggleSidebar(prev => !prev)}
-                >React <span>Job</span></RouterLink> */}
             </div>
+            <RouterLink 
+                to='/'
+                className='nav-header-logo'
+                onClick={toggleSidebar(prev => !prev)}
+            >React <span>Job</span></RouterLink>
 
             <UserDropdownMenu 
                 user={user}

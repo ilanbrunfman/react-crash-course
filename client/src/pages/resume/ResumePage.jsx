@@ -231,7 +231,7 @@ const ResumePage = () => {
         <div className="resume">
             <div className="container">
                 <div className="col-12 mx-auto pb-6 ilan">
-                    <div className="col sidebar sidebar-sticky mb-2">
+                    {/* <div className="col sidebar sidebar-sticky mb-2">
                         <div className="sidebar-container">
                             {posts.map((btn, index) => (
                                 <button
@@ -244,7 +244,7 @@ const ResumePage = () => {
                                 </button>
                             ))}
                         </div>
-                    </div>
+                    </div> */}
                     <div className="col feeds">
                         { posts.map((post, index) => ( 
                             <motion.section 

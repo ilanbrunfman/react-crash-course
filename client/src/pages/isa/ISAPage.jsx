@@ -1,6 +1,6 @@
 import { useEffect } from "react"
 import { useNavigate, useMatch, Outlet, useParams } from "react-router-dom"
-import RouterLink from "@/components/navigation/RouterLink/RouterLink"
+import RouterLink from "@/components/RouterLink/RouterLink"
 // import { isaPages } from "./ISA_Data"
 import { isaPages, getFirstISARoute } from "./helpers/isaHelpers"
 

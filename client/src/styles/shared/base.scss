@@ -128,9 +128,18 @@ img {
 
     &-main{
         @media (min-width: var.$xsm) { 
-            width: min(100%, var.$md);
+            position: relative;
+            // width: min(100%, var.$md);
+            min-width: 0;
+            width: 100%;
+            max-width: var.$md; 
             margin-inline: auto;
+            overflow-x: hidden;
         }
+
+        // @media (min-width: var.$md) { 
+        //     max-width: var.$md; 
+        // }
 
     }
 

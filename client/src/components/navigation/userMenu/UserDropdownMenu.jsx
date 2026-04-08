@@ -1,6 +1,6 @@
 import { useState, useRef, useEffect } from 'react';
 import { motion, AnimatePresence } from "framer-motion";
-import RouterLink from '@/components/navigation/RouterLink/RouterLink';
+import RouterLink from '@/components/RouterLink/RouterLink';
 import Button from '@/components/button/Button';
 
 const UserDropdownMenu = ({

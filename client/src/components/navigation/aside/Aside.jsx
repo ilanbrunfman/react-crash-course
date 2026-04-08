@@ -1,7 +1,6 @@
-import { useState, useEffect } from "react";
 import { useAuth } from '@/auth/AuthContext'
 
-import RouterLink from '@/components/navigation/RouterLink/RouterLink';
+import RouterLink from '@/components/RouterLink/RouterLink';
 
 import './Aside.scss'
 
@@ -34,7 +33,7 @@ const Aside = ({
         <>
             <aside className={`nav-sidebar ${sidebarOpen ? "open" : "closed"} ${isMobile ? "nav-sidebar-mobile" : ""}`}>
 
-                <div className="nav-sidebar-top">
+                <div className="nav-sidebar-top d-flex align-items-center gap-1">
                     <button className="hamburger" onClick={() => toggleSidebar()}>☰</button>
                 </div>
 

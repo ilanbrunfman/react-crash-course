@@ -39,18 +39,37 @@
         position: relative;
         height: 64px;
 
-        justify-content: space-between;
+        // justify-content: space-between;
         padding: 0 20px;
         transition: all 0.3s ease,;
 
         .hamburger{
-            position: absolute;
-            top: 19px;
-            left: 24px;
+            position: relative; 
+            left: 0px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            // width: 40px;
+            // height: 40px;
+            border-radius: 100%;
             font-size: 24px;
             border: none;
-            background: none;
             cursor: pointer;
+            background: none;
+        }
+
+        .logo{
+            white-space: nowrap;
+            position: relative;
+            top: 2px;
+            font-size: 16px;
+            font-weight: 600;
+
+            & span{
+                font-weight: bold;
+                color: var(--brand-primary);
+                white-space: nowrap;
+            }
         }
 
         &.closed{
