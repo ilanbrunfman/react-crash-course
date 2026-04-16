@@ -1,6 +1,6 @@
 import { useState, useMemo } from 'react';
 
-import SearchInput from '@/pages/home/SearchInput/SearchInput';
+import SearchInput from '@/components/form/SearchInput/SearchInput';
 
 import './PasswordGenerator.scss'
 
