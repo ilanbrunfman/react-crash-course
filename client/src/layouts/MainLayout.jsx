@@ -1,5 +1,6 @@
 import { Outlet } from 'react-router-dom';
 import { useState, useEffect } from "react";
+import { useBreakpoint } from '@/hooks/useBreakpoint'
 import Aside from '@/components/navigation/aside/Aside';
 import Header from '@/components/navigation/header/Header';
 // import { ModalProvider } from '@/context/modal/ModalContext';
@@ -14,38 +15,25 @@ const MainLayout = () => {
         const saved = localStorage.getItem("sidebarOpen");
         return saved !== null ? JSON.parse(saved) : true;
     }); 
+    const { isMobileViewport } = useBreakpoint()
 
     const toggleSidebar = (value) => {
         setSidebarOpen(prev =>
             typeof value === "boolean" ? value : !prev
         )
     }
-    const [isMobile, setIsMobile] = useState(
-        window.matchMedia("(max-width: 767px)").matches
-    );
 
     // save sidebar state
     useEffect(() => {
         localStorage.setItem("sidebarOpen", JSON.stringify(sidebarOpen));
     }, [sidebarOpen]);
 
-    // // detect mobile
+    // close sidebar when entering mobile viewport
     useEffect(() => {
-        const media = window.matchMedia("(max-width: 767px)");
-
-        const handler = (e) => setIsMobile(e.matches);
-
-        media.addEventListener("change", handler);
-
-        return () => media.removeEventListener("change", handler);
-    }, []);
-
-    // close sidebar when entering mobile
-    useEffect(() => {
-        if (isMobile && sidebarOpen) {
+        if (isMobileViewport && sidebarOpen) {
             setSidebarOpen(false);
         }
-    }, [isMobile]);
+    }, [isMobileViewport]);
     
 
     return (
@@ -53,7 +41,6 @@ const MainLayout = () => {
             <Aside
                 sidebarOpen={sidebarOpen}
                 toggleSidebar={toggleSidebar}
-                isMobile={isMobile}
             />
 
             <Header
