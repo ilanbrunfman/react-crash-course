@@ -1,0 +1,37 @@
+@use "@/styles/shared/variables" as var;
+
+.dashboard{
+    display: grid;
+    grid-template-rows: 64px 1fr;
+    grid-template-columns: 1fr;
+            grid-template-areas:
+            "header"
+            "main";
+    
+    min-height: 100vh;
+
+    &-main{
+        grid-area: main;
+        overflow-x: hidden;
+    }
+
+    @media (min-width: var.$md) { 
+        
+        grid-template-columns: 260px 1fr;
+        grid-template-areas:
+            "sidebar header"
+            "sidebar main";
+            
+        transition: grid-template-columns .3s ease;
+            
+        &.closed {
+            grid-template-columns: 70px 1fr;
+        }
+    }
+
+
+    
+
+    
+
+}

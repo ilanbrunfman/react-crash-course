@@ -1,9 +1,36 @@
 {
-    "users": [
-        {
-            "id": "1234",
-            "title": "Ilan Brunfman",
-            "type": "admin"
-        }
-    ]
+  "users": [
+    {
+      "id": "1234",
+      "firstName": "Ilan",
+      "lastName": "Brunfman",
+      "email": "ilanbrunfman@gmail.com",
+      "password": "1234",
+      "type": "admin"
+    },
+    {
+      "id": "eb66",
+      "firstName": "Chen",
+      "lastName": "Brunfman",
+      "email": "chen.brunfman@yahoo.com",
+      "password": "abcd",
+      "type": "guest"
+    },
+    {
+      "id": "b882",
+      "firstName": "Gilad",
+      "lastName": "Brunfman",
+      "email": "gilad2.brunfman@gmail.com",
+      "password": "something#lse12",
+      "type": "customer"
+    },
+    {
+      "id": "17fa",
+      "firstName": "vera",
+      "lastName": "bman",
+      "email": "verabman@gmail.com",
+      "password": "1234",
+      "type": "customer"
+    }
+  ]
 }

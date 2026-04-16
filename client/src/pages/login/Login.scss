@@ -1,0 +1,104 @@
+@use "@/styles/shared/variables" as var;
+
+.login{
+    &-body{
+        min-height: 100vh;
+        // background-color: pink;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
+        .wrapper{
+            width: 400px;
+            margin-inline: auto;
+            
+            &-container{
+                background-color: var(--white);
+                background-color: var(--color-surface);
+                border: solid 1px var(--color-border);
+                border-radius: 14px;
+            }
+        }
+    }
+    
+    &-form{
+        &-group {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+        }
+
+        &-label {
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--color-text);
+        }
+
+        &-input{
+            appearance: none; /* remove default OS styling */
+            -webkit-appearance: none;
+            -moz-appearance: none;
+
+            width: 100%;
+            padding: 10px 12px;
+            font-size: 14px;
+            border: 1px solid var(--color-sub-bg);
+            border-radius: 4px;
+            background-color: var(--color-sub-bg);
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        &-error{
+            font-size: 12px;
+            font-weight: 400;
+            color: red;
+        }
+
+        &-submit-button{
+            width: 100%;
+            border-radius: 4px;
+
+            .btn-label{
+                font-weight: 500;
+            }
+        }
+    }
+
+    &-header{
+        position: absolute;
+        width: 100%;
+        top: 0;
+    }
+    &-footer{
+        position: absolute;
+        width: 100%;
+        bottom: 10px;
+    }
+    .btn-icon{
+        width: 40px;
+        height: 40px;
+        padding: 0;
+        border-radius: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 0;
+        background-color: transparent;
+
+        &:hover{
+            background-color: rgba(var(--black-rgb), 0.1);
+        }
+
+        & svg{
+            width: 24px;
+            height: 24px;
+            fill: rgba(var(--black-rgb), 1.0);
+        }
+    }
+
+    &-nav-link{
+        color: var(--color-primary);
+    }
+}

@@ -1,0 +1,36 @@
+@use "@/styles/shared/variables" as var;
+
+.faq{
+    background-color: var(--color-surface);
+    border: solid 1px var(--color-border);
+    border-radius: 14px;
+    padding: 0 2.0rem;
+}
+.faq-item {
+    border-bottom: 1px solid var(--color-border);
+
+    &:last-child{
+        border-bottom: none;
+    }
+}
+
+.faq-question {
+    width: 100%;
+    text-align: left;
+    padding: 2.0rem 0;
+    background: none;
+    border: none;
+    font-size: var(--text-lg);
+    display: flex;
+    justify-content: space-between;
+    cursor: pointer;
+}
+
+.faq-answer {
+    overflow: hidden;
+}
+
+.faq-answer-inner {
+    padding-bottom: 2.0rem;
+    color: var(--color-text-muted);
+}

@@ -1,0 +1,17 @@
+@use "@/styles/shared/variables" as var;
+
+.table{
+    .item{
+        &-link{
+            cursor: pointer;
+
+            &:hover{ color: var(--color-primary); }
+        }
+
+        &-input{
+            border: none;
+            outline: none;
+            background: none;
+        }
+    }
+}
