@@ -1,19 +1,24 @@
 /* Detect screen size (hook) */
-// hooks/useBreakpoint.js 
 import { useEffect, useState } from "react"
 
 export const useBreakpoint = () => {
-    const [isMobile, setIsMobile] = useState(window.innerWidth < 768)
+    const [width, setWidth] = useState(window.innerWidth);
 
     useEffect(() => {
-        const handleResize = () => setIsMobile(window.innerWidth < 768)
-        window.addEventListener("resize", handleResize)
-        return () => window.removeEventListener("resize", handleResize)
-    }, [])
+        const handleResize = () => {
+            setWidth(window.innerWidth);
+        };
 
-    console.log('test')
-    return { isMobile }
+        window.addEventListener("resize", handleResize);
+        return () => window.removeEventListener("resize", handleResize);
+    }, []);
+
+    const isMobileViewport = width < 768;
+    const isDesktopViewport = width >= 1024;
+    const isTabletViewport = width >= 768 && width < 1024;
+
+    return { width, isMobileViewport, isTabletViewport, isDesktopViewport };
 }
 
-
-// const { isMobile } = useBreakpoint()
+// import { useBreakpoint } from '@/hooks/useBreakpoint'
+// const { isMobileViewport } = useBreakpoint()

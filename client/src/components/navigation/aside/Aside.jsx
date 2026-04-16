@@ -1,5 +1,5 @@
 import { useAuth } from '@/auth/AuthContext'
-
+import { useBreakpoint } from '@/hooks/useBreakpoint'
 import RouterLink from '@/components/RouterLink/RouterLink';
 
 import './Aside.scss'
@@ -7,12 +7,10 @@ import './Aside.scss'
 const Aside = ({ 
     sidebarOpen, 
     toggleSidebar,
-    isMobile,
 }) => {
 
     const { isAuthenticated, isAdmin } = useAuth()
-
-    
+    const { isMobileViewport } = useBreakpoint()
 
     const NAV_ITEMS = [
         {
@@ -31,7 +29,7 @@ const Aside = ({
 
     return (
         <>
-            <aside className={`nav-sidebar ${sidebarOpen ? "open" : "closed"} ${isMobile ? "nav-sidebar-mobile" : ""}`}>
+            <aside className={`nav-sidebar ${sidebarOpen ? "open" : "closed"} ${isMobileViewport ? "nav-sidebar-mobile" : ""}`}>
 
                 <div className="nav-sidebar-top d-flex align-items-center gap-1">
                     <button className="hamburger" onClick={() => toggleSidebar()}>☰</button>
@@ -49,7 +47,7 @@ const Aside = ({
                                 ].filter(Boolean).join(" ")}
                             icon={item.icon}
                             onClick={() => {
-                                if (isMobile) toggleSidebar(false)
+                                if (isMobileViewport) toggleSidebar(false)
                             }}
                         >
                             <span>{item.label}</span>
