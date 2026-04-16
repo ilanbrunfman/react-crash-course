@@ -11,6 +11,7 @@ export const useBreakpoint = () => {
         return () => window.removeEventListener("resize", handleResize)
     }, [])
 
+    console.log('test')
     return { isMobile }
 }
 
