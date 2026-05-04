@@ -26,10 +26,10 @@ const AboutPage = () => {
                 </div>
 
                 <div className="row">
-                    <div className="col-12 d-grid grid-md-3-9 gap-2">
-                        <div className="col">
+                    <div className="col-12 d-grid grid-md-1 gap-2">
+                        {/* <div className="col">
                             <Sidebar />
-                        </div>
+                        </div> */}
                         <div className="col">
                             <Outlet />
                         </div>

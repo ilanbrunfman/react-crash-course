@@ -45,7 +45,7 @@ const ITEMS = [
         category: [ 
             { id: 'backend', label: 'Backend' },
             { id: 'frontend', label: 'Frontend' },
-            { id: 'website', label: 'Website' },
+            { id: 'websites', label: 'Websites' },
         ],
         thumbnail:{ file: "ib.svg", alt: "User photo", },
     },
@@ -67,6 +67,7 @@ const ITEMS = [
         sub: 'WordPress',
         category: [
             { id: 'wordPress', label: 'WordPress' },
+            { id: 'websites', label: 'Websites' },
         ],
         thumbnail:{ file: "renewlife.png", alt: "User photo", },
     },
@@ -77,6 +78,7 @@ const ITEMS = [
         sub: '.Net Framework',
         category: [
             { id: 'frontend', label: 'Frontend' },
+            { id: 'websites', label: 'Websites' },
         ],
         thumbnail:{ file: "jatenzo.png", alt: "User photo", },
     },

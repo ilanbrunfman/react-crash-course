@@ -1,21 +1,30 @@
 import './Button.scss';
-
 import Icon from '@/components/icons/Icon';
 
 const Button = ({
     children,
     variant = 'primary',
-    size = 'md',            // sm | md | lg
-    // fullWidth = false,      // form button
-    type = 'button',        // button | submit
+    size = 'md',
+    type = 'button',
     loading = false,
     disabled = false,
     onClick,
-    icon = null,            // 'trash' | 'plus' | 'user'
+    icon = null,
     className = '',
 }) => {
 
-    const classes = ` btn btn-${variant} btn-${size} ${loading ? 'btn-loading' : ''} ${className}`.trim()
+    const resolvedClassName =
+        typeof className === 'function'
+            ? className({})
+            : className || '';
+
+    const classes = `
+        btn 
+        btn-${variant} 
+        btn-${size} 
+        ${loading ? 'btn-loading' : ''} 
+        ${resolvedClassName}
+    `.trim();
 
     const renderIcon = () => {
         if (!icon || !icon.name) return null;
