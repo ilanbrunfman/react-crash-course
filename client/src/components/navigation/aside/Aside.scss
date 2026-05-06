@@ -80,6 +80,9 @@
     &-main{
         display: flex;
         flex-direction: column;
+        max-height: calc(100vh - 64px);
+        // max-height: 600px;
+        overflow-y: auto;
 
         .nav-link {
             position: relative;
@@ -128,12 +131,26 @@
             &.active{
                 background-color: var(--color-sub-bg);
             }
-        }   
+        }  
+        
+        .accordion-item{
+            border-bottom: none;
+        }
+
+        .accordion-body {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+
+            &.open {
+            max-height: 500px;
+            }
+        }
 
         .accordion-content {
             max-height: 0;
             overflow: hidden;
-            // transition: max-height 0.3s ease;
+            transition: max-height 0.3s ease;
 
             &.open {
                 max-height: 500px;
@@ -159,7 +176,7 @@
                 }
 
                 span {
-                    margin-left: 45px;
+                    margin-left: 40px;
                 }
 
                 &:hover {
@@ -167,7 +184,11 @@
                 }
 
                 &.active {
-                    background-color: var(--color-border);
+                    color: var(--brand-primary);
+                    span{
+                        font-weight: 600;
+                    }
+                    // background-color: var(--color-border);
                 }
             }
         }

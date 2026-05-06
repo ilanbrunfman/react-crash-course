@@ -1,6 +1,11 @@
 import IconArrowLeft from './IconArrowLeft'
+import IconBrowsers from './IconBrowsers'
+import IconCards from './IconCards'
 import IconCaretRight from './IconCaretRight'
 import IconHome from './IconHome'
+import IconLayout from './IconLayout'
+import IconList from './IconList'
+import IconListBullets from './IconListBullets'
 import IconMinus from './IconMinus'
 import IconMagnifyingGlass from './IconMagnifyingGlass'
 import IconPlus from './IconPlus'
@@ -9,13 +14,20 @@ import IconSignOut from './IconSignOut'
 import IconTrash from './IconTrash'
 import IconUser from './IconUser'
 import IconStack from './IconStack'
+import IconTable from './IconTable'
+import IconTabs from './IconTabs'
 import IconX from './IconX'
 
 // Register all your icons here
 const icons = {
     IconArrowLeft: IconArrowLeft,
+    IconBrowsers: IconBrowsers,
+    IconCards: IconCards,
     IconCaretRight: IconCaretRight,
     IconHome: IconHome,
+    IconLayout: IconLayout,
+    IconList: IconList,
+    IconListBullets: IconListBullets,
     IconMinus: IconMinus,
     IconMagnifyingGlass: IconMagnifyingGlass,
     IconPlus: IconPlus,
@@ -24,6 +36,8 @@ const icons = {
     IconTrash: IconTrash,
     IconUser: IconUser,
     IconStack: IconStack,
+    IconTable: IconTable,
+    IconTabs: IconTabs,
     IconX: IconX,
 };
 

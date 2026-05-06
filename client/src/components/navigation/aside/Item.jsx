@@ -1,27 +1,16 @@
-import { useState } from 'react'
 import RouterLink from '@/components/RouterLink/RouterLink'
+import Accordion from "@/components/Accordion/Accordion"
 import Button from '@/components/Button/Button'
 
 const Item = ({ 
     item,
     sidebarOpen,
-    isOpen,
-    onToggle,
     onNavigate,
     isMobileViewport,
     toggleSidebar,
 }) => {
-    // const [isOpen, setIsOpen] = useState(false)
-    const hasChildren = !!item.children?.length
-    const handleToggle = () => {
-        // 👉 Always toggle accordion
-        onToggle()
 
-        // 👉 On mobile: ensure sidebar is open
-        if (!isMobileViewport && !sidebarOpen) {
-            toggleSidebar(true)
-        }
-    }
+    const hasChildren = !!item.children?.length
 
     if (!hasChildren) {
         return (
@@ -41,37 +30,46 @@ const Item = ({
     }
 
     return (
-        <div className="nav-accordion">
-            <Button
-                variant="empty"
-                icon={item.icon}
-                className={[
-                    "nav-link accordion-trigger",
-                    isOpen && "active"
-                ].filter(Boolean).join(" ")}
-                onClick={handleToggle}
-            >
-                { sidebarOpen && item.label }
-            </Button>
-
-            <div className={`accordion-content ${isOpen && sidebarOpen ? "open" : ""}`}>
-                {item.children.map((child, index) => (
-                    <RouterLink
-                        key={index}
-                        to={child.to}
-                        icon={{ name: 'IconUser',}}
-                        className={({ isActive }) =>
-                            ["nav-sublink", isActive && "active"]
-                                .filter(Boolean)
-                                .join(" ")
+        <Accordion
+            items={[item]}
+            allowMultiple={false}
+            renderHeader={(item, isOpen) => (
+                <Button
+                    variant="empty"
+                    icon={item.icon}
+                    className={[
+                        "nav-link accordion-trigger",
+                        isOpen && "active"
+                    ].filter(Boolean).join(" ")}
+                    onClick={() => {
+                        if (!isMobileViewport && !sidebarOpen) {
+                            toggleSidebar(true)
                         }
-                        onClick={onNavigate}
-                    >
-                        <span>{child.label}</span>
-                    </RouterLink>
-                ))}
-            </div>
-        </div>
+                    }}
+                >
+                    {sidebarOpen && item.label}
+                </Button>
+            )}
+            renderContent={(item) => (
+                <div className="accordion-content open">
+                    {sidebarOpen && item.children.map((child, index) => (
+                        <RouterLink
+                            key={index}
+                            to={child.to}
+                            icon={child.icon}
+                            className={({ isActive }) =>
+                                ["nav-sublink", isActive && "active"]
+                                    .filter(Boolean)
+                                    .join(" ")
+                            }
+                            onClick={onNavigate}
+                        >
+                            <span>{child.label}</span>
+                        </RouterLink>
+                    ))}
+                </div>
+            )}
+        />
     )
 }
 

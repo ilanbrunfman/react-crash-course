@@ -1,35 +1,28 @@
-import { useState } from "react"
-import FAQItem from "./FAQItem"
+import Accordion from "@/components/Accordion/Accordion"
+import Icon from "@/components/icons/Icon"
 import "./FAQ.scss"
 
 const FAQ = ({ items = [], allowMultiple = false }) => {
-    const [openIndexes, setOpenIndexes] = useState([])
-
-    const toggle = (index) => {
-        if (allowMultiple) {
-            setOpenIndexes(prev =>
-                prev.includes(index)
-                ? prev.filter(i => i !== index)
-                : [...prev, index]
-            )
-        } else {
-            setOpenIndexes(prev => (prev[0] === index ? [] : [index]))
-        }
-    }
-
     return (
-        <div className="faq">
-            {items.map((item, index) => (
-                <FAQItem
-                    key={index}
-                    question={item.question}
-                    isOpen={openIndexes.includes(index)}
-                    onClick={() => toggle(index)}
-                >
+        <Accordion
+            items={items}
+            allowMultiple={allowMultiple}
+            className="faq"
+            renderHeader={(item, isOpen) => (
+                <button className="faq-question">
+                    {item.question}
+                    <Icon
+                        name={isOpen ? 'IconMinus' : 'IconPlus'}
+                        size="20"
+                    />
+                </button>
+            )}
+            renderContent={(item) => (
+                <div className="faq-answer-inner">
                     {item.answer}
-                </FAQItem>
-            ))}
-        </div>
+                </div>
+            )}
+        />
     )
 }
 
