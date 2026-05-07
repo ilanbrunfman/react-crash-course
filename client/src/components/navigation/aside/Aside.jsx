@@ -55,9 +55,6 @@ const Aside = ({ sidebarOpen, toggleSidebar }) => {
             <aside className={`nav-sidebar ${sidebarOpen ? "open" : "closed"} ${isMobileViewport ? "nav-sidebar-mobile" : ""}`}>
 
                 <div className="nav-sidebar-top d-flex align-items-center gap-1">
-                    {/* <button className="hamburger" onClick={() => toggleSidebar()}>
-                        ☰
-                    </button> */}
                     <Button
                         variant="empty"
                         icon={{ name: 'IconList', position: 'center', size: 18, color: 'var(--color-text)' }}
