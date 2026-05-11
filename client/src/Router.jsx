@@ -17,6 +17,7 @@ import ISADynamic from './pages/isa/ISADynamic'
 import PasswordGenerator from './pages/passwordGenerator/PasswordGenerator'
 import QRCode from './pages/qrcode/QRCode'
 import NotFoundPage from './pages/notFound/NotFoundPage'
+import Dynamic from './pages/campaigns/Dynamic'
 
 const router = createBrowserRouter([
     {
@@ -90,7 +91,10 @@ const router = createBrowserRouter([
         path: '*',
         element: <NotFoundPage />,
     },
-    
+    {
+        path: 'campaign/:slug',
+        element: <Dynamic />,
+    }
 ])
 
 export default router

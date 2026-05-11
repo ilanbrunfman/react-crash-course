@@ -61,6 +61,17 @@ const ITEMS = [
         thumbnail:{ file: "ib.svg", alt: "User photo", },
     },
     {
+        id: 'test',
+        path: 'campaign/test3',
+        title: 'Test',
+        sub: 'Landing Page',
+        category: [
+            { id: 'backend', label: 'Backend' },
+            { id: 'frontend', label: 'Frontend' },
+        ],
+        thumbnail:{ file: "ib.svg", alt: "User photo", },
+    },
+    {
         id: 'renewlifekc',
         path: 'https://renewlifekc.com/',
         title: 'RenewlifeKC.com',

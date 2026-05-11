@@ -2,22 +2,17 @@ import { useEffect } from "react"
 
 const DEFAULT_TITLE = "My App"
 
-export const usePageMeta = ({
-    title,
-    subtitle,
-    icon,
-    }) => {
+export const usePageMeta = ({ title, subtitle, icon }) => {
     useEffect(() => {
-        // Title
-        if (title) {
-            document.title = subtitle
-                ? `${title} | ${subtitle}`
-                : `${title} | ${DEFAULT_TITLE}`
-            } else {
-            document.title = DEFAULT_TITLE
-        }
+        const finalTitle =
+            title
+                ? subtitle
+                    ? `${title} | ${subtitle}`
+                    : `${title} | ${DEFAULT_TITLE}`
+                : DEFAULT_TITLE
 
-        // Favicon
+        document.title = finalTitle
+
         if (icon) {
             let link = document.querySelector("link[rel~='icon']")
 
@@ -29,6 +24,5 @@ export const usePageMeta = ({
 
             link.href = icon
         }
-
-    }, [title, subtitle, icon]) 
+    }, [title, subtitle, icon])
 }
