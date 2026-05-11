@@ -7,6 +7,7 @@ import ItemHeader from '@/components/navigation/aside/ItemHeader'
 import ItemContent from '@/components/navigation/aside/ItemContent'
 
 import { aboutPages } from '@/pages/about/uiData.js'
+import { db } from '@/pages/campaigns/db.js'
 
 import './Aside.scss'
 
@@ -40,10 +41,10 @@ const Aside = ({ sidebarOpen, toggleSidebar }) => {
             label: 'Landing Pages',
             icon: { name: 'IconLayout', position: 'left', size: 18 },
             show: isAuthenticated,
-            children: sortedAboutPages.map(page => ({
+            children: db.map(page => ({
                 label: page.label,
                 icon: { name: page.icon, position: 'left', size: 18 },
-                to: `/about/${page.slug}`,
+                to: `/campaign/${page.slug}`,
             })),
         },
     ]

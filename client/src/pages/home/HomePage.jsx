@@ -62,8 +62,19 @@ const ITEMS = [
     },
     {
         id: 'test',
-        path: 'campaign/test3',
-        title: 'Test',
+        path: 'campaign/tailone',
+        title: 'Tailone',
+        sub: 'Landing Page',
+        category: [
+            { id: 'backend', label: 'Backend' },
+            { id: 'frontend', label: 'Frontend' },
+        ],
+        thumbnail:{ file: "ib.svg", alt: "User photo", },
+    },
+    {
+        id: 'test2',
+        path: 'campaign/test2',
+        title: 'Test Two',
         sub: 'Landing Page',
         category: [
             { id: 'backend', label: 'Backend' },
