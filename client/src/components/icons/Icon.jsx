@@ -2,8 +2,10 @@ import IconArrowLeft from './IconArrowLeft'
 import IconBrowsers from './IconBrowsers'
 import IconCards from './IconCards'
 import IconCaretRight from './IconCaretRight'
+import IconGithub from './IconGithub'
 import IconHome from './IconHome'
 import IconLayout from './IconLayout'
+import IconLinkedin from './IconLinkedin'
 import IconList from './IconList'
 import IconListBullets from './IconListBullets'
 import IconMinus from './IconMinus'
@@ -24,8 +26,10 @@ const icons = {
     IconBrowsers: IconBrowsers,
     IconCards: IconCards,
     IconCaretRight: IconCaretRight,
+    IconGithub: IconGithub,
     IconHome: IconHome,
     IconLayout: IconLayout,
+    IconLinkedin: IconLinkedin,
     IconList: IconList,
     IconListBullets: IconListBullets,
     IconMinus: IconMinus,

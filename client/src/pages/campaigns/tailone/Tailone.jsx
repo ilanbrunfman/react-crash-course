@@ -1,6 +1,11 @@
 import Header from './components/header/Header'
 import Showcase from './components/showcase/Showcase'
+import Banner from './components/banner/Banner'
+import About from './components/about/About'
 import Icon from '@/components/Icons/Icon'
+import Image from '@/components/Image/Image'
+import Contact from './components/contact/Contact'
+import Footer from './components/footer/Footer'
 import './Tailone.scss'
 
 const SERVICES = [
@@ -40,22 +45,22 @@ const TEAM = [
     {
         name: 'John Doe',
         role: 'CEO',
-        image: 'https://via.placeholder.com/300',
+        image: 'pexels-david-escala-de-almeida-1100840-24233281.jpg',
     },
     {
         name: 'Jane Smith',
         role: 'CTO',
-        image: 'https://via.placeholder.com/300',
+        image: 'pexels-michael-obstoj-1772571864-31853114.jpg',
     },
     {
         name: 'Emily Johnson',
         role: 'CFO',
-        image: 'https://via.placeholder.com/300',
+        image: 'pexels-julia-creative-401530010-15191718.jpg',
     },
     {
         name: 'Michael Brown',
         role: 'COO',
-        image: 'https://via.placeholder.com/300',
+        image: 'pexels-ionelceban-16586554.jpg',
     },
 ]
 
@@ -67,7 +72,11 @@ const Tailone = () => {
 
             <Showcase />
 
-            <section id="about" className="about-section py-5">
+            <Banner />
+
+            <About />
+
+            <section id="services" className="services-section py-5">
                 <div className="container">
                     
                     <div className="row">
@@ -100,7 +109,6 @@ const Tailone = () => {
             <section id="team" className="team-section">
                 <div className="container">
 
-                    {/* HEADER */}
                     <div className="section-heading">
                         <h5 className="section-badge">Our Team</h5>
                         <h2 className="section-title">Meet the Experts Behind Our Success</h2>
@@ -111,7 +119,7 @@ const Tailone = () => {
                         {TEAM.map((member) => (
                             <div key={member.name} className="team-card">
                                 <div className="team-image">
-                                    <img src={member.image} alt={member.name} />
+                                    <Image file={member.image} alt={member.image}/>
                                 </div>
                                 <h3 className="team-name">{member.name}</h3>
                                 <p className="team-role">{member.role}</p>
@@ -121,47 +129,9 @@ const Tailone = () => {
                 </div>
             </section>
 
-            <section id="contact" className="contact-section py-5">
-                <div className="container">
-                    <div className="row">
-                        <div className="col-12 d-grid grid-2 gap-3">
-                            <div className="col">
-                                <h3 className="text-2xl font-bold mb-4">Contact Us</h3>
-                                <form>
-                                    <div className="mb-3">
-                                        <label htmlFor="name" className="form-label">Name</label>
-                                        <input type="text" className="form-control" id="name" placeholder="Your Name" />
-                                    </div>
-                                    <div className="mb-3">
-                                        <label htmlFor="email" className="form-label">Email</label>
-                                        <input type="email" className="form-control" id="email" placeholder="Your Email" />
-                                    </div>
-                                    <div className="mb-3">
-                                        <label htmlFor="message" className="form-label">Message</label>
-                                        <textarea className="form-control" id="message" rows="4" placeholder="Your Message"></textarea>
-                                    </div>
-                                    <button type="submit" className="btn btn-primary">Send Message</button>
-                                </form>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
+            <Contact />
 
-            <footer className="bg-gray-100 p-4 rounded mt-6">
-                <div className="container">
-                    <div className="row">
-                        <div className="col-12 d-flex flex-column align-items-center gap-2">
-                            <p className="text-sm">&copy; 2025 Tailone. All rights reserved.</p>
-                            <div className="d-flex gap-3">
-                                <a href="#" className="text-gray-600 hover:text-gray-800">Privacy Policy</a>
-                                <a href="#" className="text-gray-600 hover:text-gray-800">Terms of Service</a>
-                                <a href="#" className="text-gray-600 hover:text-gray-800">Contact</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </footer>
+            <Footer />
 
         </div>  
     )

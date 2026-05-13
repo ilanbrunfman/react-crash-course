@@ -1,0 +1,61 @@
+.banner {
+    width: 100%;
+
+    padding: 64px 0;
+
+    background: #f9fbff;
+
+    overflow: hidden;
+
+    border-top: 1px solid #e5e7eb;
+    border-bottom: 1px solid #e5e7eb;
+
+    .banner-track {
+        display: flex;
+        gap: 60px;
+
+        width: max-content;
+
+        animation: scrollX 48s linear infinite;
+    }
+
+    .banner-group {
+        display: flex;
+        align-items: center;
+        gap: 60px;
+
+        padding-right: 60px;
+    }
+
+    .banner-item {
+        font-size: 32px;
+        font-weight: 600;
+
+        color: #637381;
+
+        white-space: nowrap;
+
+        transition: 0.3s ease;
+
+        cursor: default;
+
+        &:hover {
+            color: #3056d3;
+            transform: translateY(-2px);
+        }
+    }
+
+    &:hover .banner-track {
+        animation-play-state: paused;
+    }
+}
+
+@keyframes scrollX {
+    0% {
+        transform: translateX(0);
+    }
+
+    100% {
+        transform: translateX(-33%);
+    }
+}

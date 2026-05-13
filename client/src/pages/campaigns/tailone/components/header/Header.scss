@@ -36,6 +36,10 @@
     
 
     .header-wrapper {
+        position: relative;
+        z-index: 2;
+
+
         height: 80px;
 
         display: flex;
@@ -43,6 +47,13 @@
         justify-content: space-between;
 
         position: relative;
+
+        padding-inline: 5.0rem;
+
+        &-mobile{
+            position: relative;
+            z-index: 2;
+        }
     }
 
     .logo {
@@ -153,19 +164,20 @@
 
     .mobile-nav {
         position: absolute;
+        z-index: 1;
 
-        top: calc(100% + 12px);
+        top: calc(100% + 0px);
         left: 0;
 
         width: 100%;
 
         background: white;
 
-        border-radius: 20px;
+        // border-radius: 20px;
 
         border: 1px solid #e5e7eb;
 
-        padding: 20px;
+        padding: 20px 5.0rem;
 
         display: flex;
         flex-direction: column;

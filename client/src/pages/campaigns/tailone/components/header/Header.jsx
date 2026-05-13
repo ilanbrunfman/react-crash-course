@@ -106,63 +106,64 @@ const TailoneHeader = () => {
                 ${scrolled ? 'scrolled' : ''}
             `}
         >
-            <div className="container">
-                <div className="header-wrapper">
+            <div className="header-wrapper">
 
-                    {/* Logo */}
-                    <a href="#home" className="logo">
-                        <span>Tailone</span>
-                    </a>
+                {/* Logo */}
+                <a href="#home" className="logo">
+                    <span>Tailone</span>
+                </a>
 
-                    {/* Desktop Navigation */}
-                    <nav className="desktop-nav">
-                        {NAV_ITEMS.map((item) => (
-                            // <a
-                            //     key={item.href}
-                            //     href={item.href}
-                            //     className="nav-link"
-                            // >
-                            //     {item.label}
-                            // </a>
-                            <button
-                                key={item.href}
-                                className="nav-link"
-                                onClick={() => handleScrollToSection(item.href)}
-                            >
-                                {item.label}
-                            </button>
-                        ))}
-                    </nav>
+                {/* Desktop Navigation */}
+                <nav className="desktop-nav">
+                    {NAV_ITEMS.map((item) => (
+                        // <a
+                        //     key={item.href}
+                        //     href={item.href}
+                        //     className="nav-link"
+                        // >
+                        //     {item.label}
+                        // </a>
+                        <button
+                            key={item.href}
+                            className="nav-link"
+                            onClick={() => handleScrollToSection(item.href)}
+                        >
+                            {item.label}
+                        </button>
+                    ))}
+                </nav>
 
-                    {/* Hamburger */}
-                    <button
-                        ref={hamburgerRef}
-                        className={`hamburger ${mobileOpen ? 'active' : ''}`}
-                        onClick={() => setMobileOpen(prev => !prev)}
-                        aria-label="Toggle navigation"
-                    >
-                        <span />
-                        <span />
-                        <span />
-                    </button>
+                {/* Hamburger */}
+                <button
+                    ref={hamburgerRef}
+                    className={`hamburger ${mobileOpen ? 'active' : ''}`}
+                    onClick={() => setMobileOpen(prev => !prev)}
+                    aria-label="Toggle navigation"
+                >
+                    <span />
+                    <span />
+                    <span />
+                </button>
 
-                    {/* Mobile Menu */}
-                    <div
-                        ref={mobileMenuRef}
-                        className={`mobile-nav ${mobileOpen ? 'open' : ''}`}
-                    >
-                        {NAV_ITEMS.map((item) => (
-                            <a
-                                key={item.href}
-                                href={item.href}
-                                className="mobile-nav-link"
-                                onClick={() => setMobileOpen(false)}
-                            >
-                                {item.label}
-                            </a>
-                        ))}
-                    </div>
 
+            </div>
+
+            <div className="header-wrapper-mobile">
+                {/* Mobile Menu */}
+                <div
+                    ref={mobileMenuRef}
+                    className={`mobile-nav ${mobileOpen ? 'open' : ''}`}
+                >
+                    {NAV_ITEMS.map((item) => (
+                        <a
+                            key={item.href}
+                            href={item.href}
+                            className="mobile-nav-link"
+                            onClick={() => setMobileOpen(false)}
+                        >
+                            {item.label}
+                        </a>
+                    ))}
                 </div>
             </div>
         </header>
