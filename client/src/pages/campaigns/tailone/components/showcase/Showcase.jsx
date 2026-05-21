@@ -2,17 +2,17 @@ import { useEffect, useState } from 'react'
 import './Showcase.scss'
 import TeamCollaboration from '@/assets/images/undraw_team-collaboration_phnf.svg'
 
-const WORDS = [
-    'Modern Websites',
-    'Creative Solutions',
-    'Powerful Brands',
-    'Digital Experiences',
-]
-
 const Showcase = () => {
     const [text, setText] = useState('')
     const [wordIndex, setWordIndex] = useState(0)
     const [isDeleting, setIsDeleting] = useState(false)
+    
+    const WORDS = [
+        'Modern Websites',
+        'Creative Solutions',
+        'Powerful Brands',
+        'Digital Experiences',
+    ]
 
     useEffect(() => {
         const currentWord = WORDS[wordIndex]

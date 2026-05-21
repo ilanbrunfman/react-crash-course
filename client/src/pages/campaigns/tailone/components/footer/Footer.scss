@@ -18,11 +18,19 @@
 
     .footer-logo {
         font-size: 32px;
-        font-weight: 800;
+        font-weight: bold;
 
         color: #212b36;
 
         margin-bottom: 20px;
+
+        span{
+            font-weight: 800;
+            background: linear-gradient(90deg, #3056d3, #d23669);
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+        }
     }
 
     .footer-description {

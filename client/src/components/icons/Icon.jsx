@@ -2,6 +2,7 @@ import IconArrowLeft from './IconArrowLeft'
 import IconBrowsers from './IconBrowsers'
 import IconCards from './IconCards'
 import IconCaretRight from './IconCaretRight'
+import IconCaretUp from './IconCaretUp'
 import IconGithub from './IconGithub'
 import IconHome from './IconHome'
 import IconLayout from './IconLayout'
@@ -18,6 +19,7 @@ import IconUser from './IconUser'
 import IconStack from './IconStack'
 import IconTable from './IconTable'
 import IconTabs from './IconTabs'
+import IconTwitter from './IconTwitter'
 import IconX from './IconX'
 
 // Register all your icons here
@@ -26,6 +28,7 @@ const icons = {
     IconBrowsers: IconBrowsers,
     IconCards: IconCards,
     IconCaretRight: IconCaretRight,
+    IconCaretUp: IconCaretUp,
     IconGithub: IconGithub,
     IconHome: IconHome,
     IconLayout: IconLayout,
@@ -42,6 +45,7 @@ const icons = {
     IconStack: IconStack,
     IconTable: IconTable,
     IconTabs: IconTabs,
+    IconTwitter: IconTwitter,
     IconX: IconX,
 };
 

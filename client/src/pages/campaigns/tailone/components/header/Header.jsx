@@ -1,11 +1,12 @@
 import { useEffect, useRef, useState } from 'react'
+import Button from '@/components/Button/Button'
 import './header.scss'
 
 const NAV_ITEMS = [
     { label: 'Home', href: '#home' },
+    { label: 'Portfolio', href: '#portfolio' },
     { label: 'About', href: '#about' },
     { label: 'Services', href: '#services' },
-    { label: 'Portfolio', href: '#portfolio' },
     { label: 'Team', href: '#team' },
     { label: 'Contact', href: '#contact' },
 ]
@@ -98,20 +99,25 @@ const TailoneHeader = () => {
         setMobileOpen(false)
     }
 
+    const handleScrollTop = () => {
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth',
+        })
+    }
+
     return (
         <header
-            className={`
-                tailone-header
-                ${hidden ? 'hidden' : ''}
-                ${scrolled ? 'scrolled' : ''}
-            `}
+            className={[`tailone-header ${hidden ? 'hidden' : ''} ${scrolled ? 'scrolled' : ''}`].join(' ')}
         >
             <div className="header-wrapper">
 
-                {/* Logo */}
-                <a href="#home" className="logo">
-                    <span>Tailone</span>
-                </a>
+                <Button
+                    variant="empty"
+                    className="logo"
+                    onClick={handleScrollTop}
+                    aria-label="Tailone-header-logo"
+                >Tailone</Button>
 
                 {/* Desktop Navigation */}
                 <nav className="desktop-nav">

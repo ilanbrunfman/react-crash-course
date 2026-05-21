@@ -1,3 +1,7 @@
+import { useState, useEffect } from "react"
+
+import { PORTFOLIO_ITEMS, SERVICES, TEAM } from "./data/data"
+
 import Header from './components/header/Header'
 import Showcase from './components/showcase/Showcase'
 import Banner from './components/banner/Banner'
@@ -6,65 +10,37 @@ import Icon from '@/components/Icons/Icon'
 import Image from '@/components/Image/Image'
 import Contact from './components/contact/Contact'
 import Footer from './components/footer/Footer'
+import ScrollTop from './components/scrollTop/ScrollTop'
+import Modal from './components/Modal/Modal'
 import './Tailone.scss'
 
-const SERVICES = [
-    {
-        icon: 'IconTable',
-        title: 'Web Development',
-        subtitle: 'Modern and scalable websites built with clean architecture and performance in mind.',
-    },
-    {
-        icon: 'IconTabs',
-        title: 'UI/UX Design',
-        subtitle: 'Beautiful and user-focused interfaces designed for engagement and conversion.',
-    },
-    {
-        icon: 'IconStack',
-        title: 'Responsive Design',
-        subtitle: 'Fully responsive layouts optimized for desktop, tablet, and mobile experiences.',
-    },
-    {
-        icon: 'IconBrowsers',
-        title: 'Performance Optimization',
-        subtitle: 'Fast-loading experiences with optimized assets, SEO structure, and accessibility.',
-    },
-    {
-        icon: 'IconMagnifyingGlass',
-        title: 'Secure Solutions',
-        subtitle: 'Reliable development practices with security, stability, and scalability in mind.',
-    },
-    {
-        icon: 'IconLayout',
-        title: 'Digital Strategy',
-        subtitle: 'Helping brands grow with modern technologies and strategic digital experiences.',
-    },
-]
 
-const TEAM = [
-    {
-        name: 'John Doe',
-        role: 'CEO',
-        image: 'pexels-david-escala-de-almeida-1100840-24233281.jpg',
-    },
-    {
-        name: 'Jane Smith',
-        role: 'CTO',
-        image: 'pexels-michael-obstoj-1772571864-31853114.jpg',
-    },
-    {
-        name: 'Emily Johnson',
-        role: 'CFO',
-        image: 'pexels-julia-creative-401530010-15191718.jpg',
-    },
-    {
-        name: 'Michael Brown',
-        role: 'COO',
-        image: 'pexels-ionelceban-16586554.jpg',
-    },
-]
 
 const Tailone = () => {
+
+    const [selectedProject, setSelectedProject] = useState(null)
+    
+    useEffect(() => {
+        if (selectedProject) {
+            document.body.style.overflow = 'hidden'
+        } else {
+            document.body.style.overflow = ''
+        }
+    
+        const handleEscape = (e) => {
+            if (e.key === 'Escape') {
+                setSelectedProject(null)
+            }
+        }
+    
+        window.addEventListener('keydown', handleEscape)
+    
+        return () => {
+            document.body.style.overflow = ''
+            window.removeEventListener('keydown', handleEscape)
+        }
+    }, [selectedProject])
+
     return (
         <div className="tailone-page">
 
@@ -72,7 +48,79 @@ const Tailone = () => {
 
             <Showcase />
 
-            <Banner />
+            {/* <Banner /> */}
+
+            <section id="portfolio" className="portfolio-section">
+
+                <div className="container">
+
+                    <div className="section-heading">
+                        <span className="section-badge">Portfolio</span>
+                        <h2 className="section-title">Our Latest Projects</h2>
+                        <p className="section-subtitle">Explore some of the digital products and experiences we’ve crafted for startups, brands, and businesses.</p>
+                    </div>
+
+                    {/* GRID */}
+                    <div className="portfolio-grid">
+
+                        {PORTFOLIO_ITEMS.map((item) => (
+                            <article
+                                key={item.title}
+                                className="portfolio-card"
+                                onClick={() => setSelectedProject(item)}
+                            >
+
+                                {/* IMAGE */}
+                                <div className="portfolio-image">
+
+                                   <Image
+                                        key={item.title}
+                                        src={item.image}
+                                        alt={item.title}
+                                        lazy={true}
+                                    />
+
+                                    <div className="portfolio-overlay">
+
+                                        <a
+                                            href={item.href}
+                                            target="_blank"
+                                            rel="noreferrer"
+                                            className="portfolio-btn"
+                                        >View Project</a>
+
+                                    </div>
+
+                                </div>
+
+                                {/* CONTENT */}
+                                <div className="portfolio-content">
+
+                                    <span className="portfolio-category">
+                                        {item.category}
+                                    </span>
+
+                                    <h3 className="portfolio-title">
+                                        {item.title}
+                                    </h3>
+
+                                </div>
+
+                            </article>
+                        ))}
+
+                    </div>
+
+                    {selectedProject && (
+                        <Modal
+                            selectedProject={selectedProject}
+                            setSelectedProject={setSelectedProject}
+                        />
+                    )}
+
+                </div>
+
+            </section>
 
             <About />
 
@@ -119,7 +167,7 @@ const Tailone = () => {
                         {TEAM.map((member) => (
                             <div key={member.name} className="team-card">
                                 <div className="team-image">
-                                    <Image file={member.image} alt={member.image}/>
+                                    <Image file={member.image} alt={member.image} lazy={true}/>
                                 </div>
                                 <h3 className="team-name">{member.name}</h3>
                                 <p className="team-role">{member.role}</p>
@@ -132,6 +180,8 @@ const Tailone = () => {
             <Contact />
 
             <Footer />
+
+            <ScrollTop />
 
         </div>  
     )

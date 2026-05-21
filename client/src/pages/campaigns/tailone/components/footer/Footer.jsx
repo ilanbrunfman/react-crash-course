@@ -1,9 +1,6 @@
-// import {
-//     Github,
-//     Linkedin,
-//     Twitter,
-// } from 'lucide-react'
 import Icon from '@/components/Icons/Icon'
+import Button from '@/components/Button/Button'
+import RouterLink from '@/components/RouterLink/RouterLink'
 import './footer.scss'
 
 const FOOTER_LINKS = [
@@ -12,6 +9,12 @@ const FOOTER_LINKS = [
     { label: 'Team', href: '#team' },
     { label: 'Contact', href: '#contact' },
 ]
+
+const SOCIAL_LINKS = [
+    { icon: 'IconGithub', href: 'https://github.com', },
+    { icon: 'IconLinkedin', href: 'https://linkedin.com', },
+    { icon: 'IconTwitter', href: 'https://twitter.com', },
+]   
 
 const Footer = () => {
     const handleScrollToSection = (href) => {
@@ -25,106 +28,66 @@ const Footer = () => {
         }
     }
 
+    const handleScrollTop = () => {
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth',
+        })
+    }
+
     return (
         <footer className="tailone-footer">
 
             <div className="container">
 
                 <div className="footer-top">
-
-                    {/* BRAND */}
                     <div className="footer-brand">
-
-                        <h3 className="footer-logo">
-                            Tailone
-                        </h3>
-
-                        <p className="footer-description">
-                            Building modern digital experiences
-                            for startups, creators, and businesses.
-                        </p>
-
+                        <Button
+                            variant="empty"
+                            className="footer-logo"
+                            onClick={handleScrollTop}
+                            aria-label="Tailone-footer-logo"
+                        >Tailone</Button>
+                        {/* <h3 className="footer-logo">Tailone</h3> */}
+                        <p className="footer-description">Building modern digital experiences for startups, creators, and businesses.</p>
                     </div>
 
-                    {/* LINKS */}
                     <div className="footer-links">
-
-                        <h4>
-                            Navigation
-                        </h4>
+                        <h4>Navigation</h4>
 
                         {FOOTER_LINKS.map((item) => (
-                            <button
+                            <Button
                                 key={item.href}
-                                onClick={() =>
-                                    handleScrollToSection(item.href)
-                                }
+                                onClick={ () => handleScrollToSection(item.href) }
                             >
                                 {item.label}
-                            </button>
+                            </Button>
                         ))}
-
                     </div>
 
-                    {/* SOCIAL */}
                     <div className="footer-social">
-
-                        <h4>
-                            Social
-                        </h4>
+                        <h4>Social</h4>
 
                         <div className="social-links">
-
-                            <a
-                                href="https://github.com"
-                                target="_blank"
-                                rel="noreferrer"
-                            >
-                                {/* <Github size={18} /> */}
-                                <Icon name="IconGithub" />
-                            </a>
-
-                            <a
-                                href="https://linkedin.com"
-                                target="_blank"
-                                rel="noreferrer"
-                            >
-                                {/* <Linkedin size={18} /> */}
-                                <Icon name="IconLinkedin" />
-                            </a>
-
-                            <a
-                                href="https://twitter.com"
-                                target="_blank"
-                                rel="noreferrer"
-                            >
-                                {/* <Twitter size={18} /> */}
-                                <Icon name="IconHome" />
-                            </a>
-
+                            {SOCIAL_LINKS.map((item) => (
+                                <RouterLink 
+                                    key={item.href}
+                                    href={item.href}
+                                    icon={{ name: item.icon }}
+                                />
+                            ))}
                         </div>
 
                     </div>
 
                 </div>
 
-                {/* BOTTOM */}
                 <div className="footer-bottom">
-
-                    <p>
-                        © 2026 Tailone. All rights reserved.
-                    </p>
+                    <p>© 2026 Tailone. All rights reserved.</p>
 
                     <div className="footer-legal">
-
-                        <a href="#">
-                            Privacy Policy
-                        </a>
-
-                        <a href="#">
-                            Terms of Service
-                        </a>
-
+                        <RouterLink href="#">Privacy Policy</RouterLink>
+                        <RouterLink href="#">Terms of Service</RouterLink>
                     </div>
 
                 </div>
